@@ -9,6 +9,7 @@ var serverConnect = require("ServerConnect");
 var requestHandler = require("RequestHandler");
 var onfire = require("onfire");
 var events = require("CustomEvents");
+var GameData = require("GameData");
 
 cc.Class({
     extends: cc.Component,
@@ -60,6 +61,8 @@ cc.Class({
 
         onfire.on(events.hall.S2C_LOGIN, function (data1, data2) {
             console.log("s_game_login=====", data1);
+            GameData.setUserInfo(data1.userInfo);
+            self.setUserInfo(data1.userInfo);
             onfire.un(events.hall.S2C_LOGIN);
         });
 
@@ -90,8 +93,8 @@ cc.Class({
     },
     setUserInfo: function setUserInfo(data) {
         self.labelName.string = data.name;
-        self.labelPlayerId.string = data.playerId;
-        self.labelNotice.string = data.notice;
+        self.labelPlayerId.string = data.uid;
+        // self.labelNotice.string = data.notice;
         self.labelScore.string = data.score;
     }
 });

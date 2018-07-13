@@ -40,7 +40,7 @@
     "relativePath": "prefab"
   },
   "7b81d4e8-ec84-4716-968d-500ac1d78a54": {
-    "asset": 1530241403171,
+    "asset": 1531458057026,
     "meta": 1529634642000,
     "relativePath": "resources"
   },
@@ -504,70 +504,10 @@
     "meta": 1530150132812,
     "relativePath": "resources/Font/y.png"
   },
-  "d19c055d-d273-4d2a-a120-43ad390cebd2": {
-    "asset": 1527246292000,
-    "meta": 1530150124182,
-    "relativePath": "resources/Prefab"
-  },
-  "95bbc17d-3da9-4ec1-8be3-4e0a2a12150f": {
-    "asset": 1527246292000,
-    "meta": 1530150132814,
-    "relativePath": "resources/Prefab/alert.prefab"
-  },
-  "27274e75-f6c3-421e-80b8-a612873629cc": {
-    "asset": 1527246292000,
-    "meta": 1530150132819,
-    "relativePath": "resources/Prefab/bull_common_create_room_rule.prefab"
-  },
-  "1b8dbba3-e48f-45bf-923a-ed34e94e0478": {
-    "asset": 1527246292000,
-    "meta": 1530150132821,
-    "relativePath": "resources/Prefab/bull_common_create_room.prefab"
-  },
-  "81b00387-9b79-4167-bc3d-d1e6104518b2": {
-    "asset": 1527246292000,
-    "meta": 1530150132822,
-    "relativePath": "resources/Prefab/card_item.prefab"
-  },
-  "470397f1-419c-4b5e-b693-50f44c5a9af3": {
-    "asset": 1527246292000,
-    "meta": 1530150132823,
-    "relativePath": "resources/Prefab/coin.prefab"
-  },
-  "0639be60-c137-4dcc-8c89-9485ebc25ea9": {
-    "asset": 1527246292000,
-    "meta": 1530150132825,
-    "relativePath": "resources/Prefab/create_success.prefab"
-  },
-  "d95d0beb-c08f-4bd0-91a7-ce1eebe07e63": {
-    "asset": 1527246292000,
-    "meta": 1530150132826,
-    "relativePath": "resources/Prefab/cuopai.prefab"
-  },
-  "91b6ccfc-d784-4d4b-ad4b-eaabe7934d69": {
-    "asset": 1527246292000,
-    "meta": 1530150132827,
-    "relativePath": "resources/Prefab/idler_item.prefab"
-  },
-  "75787be8-359a-4ad1-b8a3-0f868c6c8561": {
-    "asset": 1530155734236,
-    "meta": 1530155734243,
-    "relativePath": "resources/Prefab/join_room.prefab"
-  },
-  "9690d909-8088-406f-b49a-b0c8f15af7de": {
-    "asset": 1527246292000,
-    "meta": 1530150132831,
-    "relativePath": "resources/Prefab/loading.prefab"
-  },
   "68d97dc3-1ffe-462c-9332-27f813ca0be7": {
     "asset": 1530152761341,
     "meta": 1530150124184,
     "relativePath": "resources/Scene"
-  },
-  "78530762-12e5-4b04-9218-8b6eeda8c0da": {
-    "asset": 1527246292000,
-    "meta": 1530150132833,
-    "relativePath": "resources/Prefab/poker_back.prefab"
   },
   "d1347a0d-8ed7-434b-9ef6-3f5aa204f467": {
     "asset": 1531382476100,
@@ -990,14 +930,9 @@
     "relativePath": "resources/Scene/hall.fire"
   },
   "a424772a-abda-45f4-ab05-31bea92fa8c8": {
-    "asset": 1530156370180,
-    "meta": 1530156370244,
+    "asset": 1531497286158,
+    "meta": 1531497286212,
     "relativePath": "resources/Scene/bull.fire"
-  },
-  "080ee9a9-e3e4-4934-aa7c-f72415e1b96b": {
-    "asset": 1530157629886,
-    "meta": 1530157638365,
-    "relativePath": "resources/Script/view/Player.js"
   },
   "f33356f3-d6d0-43e5-9adf-1e71642ba627": {
     "asset": 1530324170712,
@@ -1009,24 +944,94 @@
     "meta": 1530325063654,
     "relativePath": "resources/Script/network/ServerConnect.js"
   },
+  "bfe5f48b-1363-4be9-bdd3-fbfffe4f69dd": {
+    "asset": 1527246292000,
+    "meta": 1531464938014,
+    "relativePath": "resources/Prefab"
+  },
+  "95bbc17d-3da9-4ec1-8be3-4e0a2a12150f": {
+    "asset": 1527246292000,
+    "meta": 1531464938026,
+    "relativePath": "resources/Prefab/alert.prefab"
+  },
+  "27274e75-f6c3-421e-80b8-a612873629cc": {
+    "asset": 1527246292000,
+    "meta": 1531464938033,
+    "relativePath": "resources/Prefab/bull_common_create_room_rule.prefab"
+  },
+  "1b8dbba3-e48f-45bf-923a-ed34e94e0478": {
+    "asset": 1527246292000,
+    "meta": 1531464938034,
+    "relativePath": "resources/Prefab/bull_common_create_room.prefab"
+  },
+  "81b00387-9b79-4167-bc3d-d1e6104518b2": {
+    "asset": 1527246292000,
+    "meta": 1531464938035,
+    "relativePath": "resources/Prefab/card_item.prefab"
+  },
+  "470397f1-419c-4b5e-b693-50f44c5a9af3": {
+    "asset": 1527246292000,
+    "meta": 1531464938036,
+    "relativePath": "resources/Prefab/coin.prefab"
+  },
+  "0639be60-c137-4dcc-8c89-9485ebc25ea9": {
+    "asset": 1527246292000,
+    "meta": 1531464938038,
+    "relativePath": "resources/Prefab/create_success.prefab"
+  },
+  "d95d0beb-c08f-4bd0-91a7-ce1eebe07e63": {
+    "asset": 1527246292000,
+    "meta": 1531464938040,
+    "relativePath": "resources/Prefab/cuopai.prefab"
+  },
+  "91b6ccfc-d784-4d4b-ad4b-eaabe7934d69": {
+    "asset": 1527246292000,
+    "meta": 1531464938041,
+    "relativePath": "resources/Prefab/idler_item.prefab"
+  },
+  "75787be8-359a-4ad1-b8a3-0f868c6c8561": {
+    "asset": 1530155734236,
+    "meta": 1531464938046,
+    "relativePath": "resources/Prefab/join_room.prefab"
+  },
+  "9690d909-8088-406f-b49a-b0c8f15af7de": {
+    "asset": 1527246292000,
+    "meta": 1531464938048,
+    "relativePath": "resources/Prefab/loading.prefab"
+  },
+  "78530762-12e5-4b04-9218-8b6eeda8c0da": {
+    "asset": 1527246292000,
+    "meta": 1531464938049,
+    "relativePath": "resources/Prefab/poker_back.prefab"
+  },
+  "080ee9a9-e3e4-4934-aa7c-f72415e1b96b": {
+    "asset": 1531494104653,
+    "meta": 1531494108127,
+    "relativePath": "resources/Script/view/Player.js"
+  },
+  "c27bdb80-b39e-41ab-81fa-61c8fcea6e9e": {
+    "asset": 1531495253816,
+    "meta": 1531495256119,
+    "relativePath": "resources/Script/view/Hall.js"
+  },
+  "7a749e02-facd-4a83-8493-45583aead368": {
+    "asset": 1531495392990,
+    "meta": 1531496403716,
+    "relativePath": "resources/Script/view/GameData.js"
+  },
+  "ebcca94f-944d-42a9-af81-977c89234b52": {
+    "asset": 1531496047993,
+    "meta": 1531496403721,
+    "relativePath": "resources/Script/view/JoinRoom.js"
+  },
   "7bab3019-d62a-48b2-9350-a455b4565a7d": {
-    "asset": 1531387412863,
-    "meta": 1531388221115,
+    "asset": 1531497042861,
+    "meta": 1531497046846,
     "relativePath": "resources/Script/global/CustomEvents.js"
   },
   "3a311747-b416-4062-bcc2-b40807dd8295": {
-    "asset": 1531453252258,
-    "meta": 1531453259878,
+    "asset": 1531497442478,
+    "meta": 1531497445638,
     "relativePath": "resources/Script/view/Game.js"
-  },
-  "c27bdb80-b39e-41ab-81fa-61c8fcea6e9e": {
-    "asset": 1531453123442,
-    "meta": 1531453259879,
-    "relativePath": "resources/Script/view/Hall.js"
-  },
-  "ebcca94f-944d-42a9-af81-977c89234b52": {
-    "asset": 1531453378960,
-    "meta": 1531453726368,
-    "relativePath": "resources/Script/view/JoinRoom.js"
   }
 }

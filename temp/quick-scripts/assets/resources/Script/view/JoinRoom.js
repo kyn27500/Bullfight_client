@@ -8,7 +8,7 @@ var self = void 0;
 var requestHandler = require("RequestHandler");
 var onfire = require("onfire");
 var events = require("CustomEvents");
-
+var GameData = require("GameData");
 cc.Class({
     extends: cc.Component,
 
@@ -22,6 +22,7 @@ cc.Class({
     onLoad: function onLoad() {
         self = this;
         onfire.on(events.hall.userJoinRoomS2C, self.joinRoomS2C);
+        self.editBox.string = '035645';
     },
 
     onClickForEnter: function onClickForEnter() {
@@ -29,7 +30,7 @@ cc.Class({
         console.log(roomCode);
 
         var data = {
-            roomNo: '035645'
+            roomNo: roomCode
         };
         requestHandler.sendRequest(events.hall.userJoinRoomC2S, data);
     },
@@ -38,9 +39,12 @@ cc.Class({
     },
     joinRoomS2C: function joinRoomS2C(data) {
         console.log(data);
-        cc.director.loadScene("bull", function () {
-            onfire.fire(events.game.GAME_DATA, data1, data2);
-        });
+        if (data.result == 0) {
+            GameData.setRoomCode(self.editBox.string);
+            cc.director.loadScene("bull", function () {
+                onfire.fire(events.game.GAME_DATA, data);
+            });
+        } else {}
     }
 });
 
