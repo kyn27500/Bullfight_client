@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"up","_duration":0.15,"speed":0.1,"curveData":{"props":{"position":[{"frame":0,"value":[0,75],"motionPath":[]},{"frame":0.05,"value":[0,90]},{"frame":0.1,"value":[0,100]},{"frame":0.15,"value":[0,75]}]}}}

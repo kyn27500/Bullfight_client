@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"right","_duration":0.15,"speed":0.1,"curveData":{"comps":{"cc.Sprite":{}},"props":{"position":[{"frame":0,"value":[70,7]},{"frame":0.05,"value":[85,7]},{"frame":0.1,"value":[95,7]},{"frame":0.15,"value":[70,7]}]}},"events":[{"frame":0,"func":"","params":[]}]}

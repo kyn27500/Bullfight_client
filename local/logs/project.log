@@ -1,0 +1,647 @@
+2018-07-12T09:37:08.621Z - normal: Load ~/.CocosCreator/settings.json
+2018-07-12T09:37:08.625Z - normal: checking language setting...
+2018-07-12T09:37:08.625Z - normal: Language: en
+2018-07-12T09:37:09.113Z - success: protocol editor-framework registered
+2018-07-12T09:37:09.114Z - success: protocol app registered
+2018-07-12T09:37:09.114Z - success: protocol theme registered
+2018-07-12T09:37:09.114Z - success: protocol profile registered
+2018-07-12T09:37:09.114Z - success: protocol packages registered
+2018-07-12T09:37:09.117Z - success: protocol unpack registerred
+2018-07-12T09:37:09.117Z - success: protocol disable-commonjs registerred
+2018-07-12T09:37:09.205Z - normal: connected!
+2018-07-12T09:37:09.219Z - normal: Check project /Users/wangmeili/Documents/workspace/creater/PKGame_creator
+2018-07-12T09:37:09.221Z - normal: Initializing Cocos2d
+2018-07-12T09:37:09.377Z - normal: Initializing Asset Database
+2018-07-12T09:37:09.403Z - success: protocol uuid registerred
+2018-07-12T09:37:09.404Z - success: protocol db registerred
+2018-07-12T09:37:09.404Z - success: protocol thumbnail registerred
+2018-07-12T09:37:09.404Z - normal: Loading editor/builtin packages
+2018-07-12T09:37:09.423Z - success: anysdk loaded
+2018-07-12T09:37:09.555Z - success: assets loaded
+2018-07-12T09:37:09.560Z - success: builder loaded
+2018-07-12T09:37:09.564Z - success: hierarchy loaded
+2018-07-12T09:37:09.568Z - success: inspector loaded
+2018-07-12T09:37:09.569Z - success: keystore loaded
+2018-07-12T09:37:09.572Z - success: node-library loaded
+2018-07-12T09:37:09.574Z - success: package-asset loaded
+2018-07-12T09:37:09.577Z - success: preferences loaded
+2018-07-12T09:37:09.580Z - success: project-exporter loaded
+2018-07-12T09:37:09.594Z - success: project-importer loaded
+2018-07-12T09:37:09.597Z - success: project-settings loaded
+2018-07-12T09:37:09.601Z - success: ui-kit loaded
+2018-07-12T09:37:09.605Z - success: ui-grid loaded
+2018-07-12T09:37:09.611Z - success: scene loaded
+2018-07-12T09:37:09.612Z - success: sprite-editor loaded
+2018-07-12T09:37:09.617Z - success: store loaded
+2018-07-12T09:37:09.622Z - success: timeline loaded
+2018-07-12T09:37:09.622Z - normal: Loading builtin packages
+2018-07-12T09:37:09.628Z - success: asset-db-debugger loaded
+2018-07-12T09:37:09.629Z - success: color-picker loaded
+2018-07-12T09:37:09.633Z - success: console loaded
+2018-07-12T09:37:09.637Z - success: package-manager loaded
+2018-07-12T09:37:09.643Z - success: sdkbox loaded
+2018-07-12T09:37:09.647Z - success: tester loaded
+2018-07-12T09:37:09.651Z - success: ui-kit-preview-extra loaded
+2018-07-12T09:37:09.654Z - success: ui-kit-preview loaded
+2018-07-12T09:37:09.657Z - success: ui-tree loaded
+2018-07-12T09:37:10.451Z - normal: Initializing project /Users/wangmeili/Documents/workspace/creater/PKGame_creator
+2018-07-12T09:37:10.453Z - normal: Loading packages
+2018-07-12T09:37:10.467Z - normal: [LuaCPP Support] version 0.3
+2018-07-12T09:37:10.468Z - success: creator-luacpp-support loaded
+2018-07-12T09:37:10.468Z - normal: Watching packages
+2018-07-12T09:37:10.554Z - normal: Run Application
+2018-07-12T09:37:11.228Z - failed: [db-task][init] Failed to import asset /Users/wangmeili/Documents/workspace/creater/PKGame_creator/assets/resources/Script/view/JoinRoom.js, message: Compile error: SyntaxError: /Users/wangmeili/Documents/workspace/creater/PKGame_creator/assets/resources/Script/view/JoinRoom.js: Invalid number (26:19)
+  24 | 
+  25 |         var data = {
+> 26 |             roomNo:035645
+     |                    ^
+  27 |         };
+  28 |         requestHandler.sendRequest(events.hall.userJoinRoomC2S, data);
+  29 |         
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.readNumber (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1268:12)
+    at Parser.getTokenFromCode (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1102:21)
+    at Parser.readToken (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:776:19)
+    at Parser.nextToken (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:766:19)
+    at Parser.next (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:691:10)
+    at Parser.eat (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:698:12)
+    at Parser.pp$3.parseObjectProperty (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4114:12)
+    at Parser.pp$3.parseObjPropValue (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4140:84)
+    at Parser.pp$3.parseObj (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4048:10)
+2018-07-12T09:37:11.480Z - success: preview server running at http://localhost:7456
+2018-07-12T09:37:16.645Z - normal: 1.6.1
+2018-07-13T03:24:48.879Z - warn: Script attached to "site1" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site1"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.882Z - warn: Script attached to "site2" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site2"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.883Z - warn: Script attached to "site3" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site3"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.883Z - warn: Script attached to "site4" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site4"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.883Z - warn: Script attached to "site5" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site5"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.883Z - warn: Script attached to "site6" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site6"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.884Z - warn: Script attached to "site7" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site7"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.884Z - warn: Script attached to "site8" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site8"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.884Z - warn: Script attached to "site9" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site9"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.885Z - warn: Script attached to "site10" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site10"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.885Z - warn: Script attached to "site11" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site11"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.885Z - warn: Script attached to "site12" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/sites/site12"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "34f6395c-901f-4766-b41b-59275717e0a8"
+Class ID: "34f63lckB9HZrQbWSdXF+Co"
+
+2018-07-13T03:24:48.887Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player1/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.889Z - warn: Script attached to "player1" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player1"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.891Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player2/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.893Z - warn: Script attached to "player2" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player2"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.895Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player3/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.897Z - warn: Script attached to "player3" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player3"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.900Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player4/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.904Z - warn: Script attached to "player4" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player4"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.905Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player5/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.907Z - warn: Script attached to "player5" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player5"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.909Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player6/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.911Z - warn: Script attached to "player6" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player6"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.912Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player7/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.913Z - warn: Script attached to "player7" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player7"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.915Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player8/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.916Z - warn: Script attached to "player8" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player8"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.917Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player9/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.918Z - warn: Script attached to "player9" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player9"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.921Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player10/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.922Z - warn: Script attached to "player10" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player10"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.924Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player11/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.926Z - warn: Script attached to "player11" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player11"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.928Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player12/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.930Z - warn: Script attached to "player12" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/players/player12"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.933Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player1/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.936Z - warn: Script attached to "player1" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player1"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.938Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player2/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.940Z - warn: Script attached to "player2" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player2"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.942Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player3/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.944Z - warn: Script attached to "player3" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player3"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.945Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player4/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.946Z - warn: Script attached to "player4" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player4"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.948Z - warn: Script attached to "card_item" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards/card_item"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:48.949Z - warn: Script attached to "card_item" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards/card_item"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:48.949Z - warn: Script attached to "card_item" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards/card_item"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:48.950Z - warn: Script attached to "card_item" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards/card_item"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:48.950Z - warn: Script attached to "card_item" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards/card_item"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:48.950Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.951Z - warn: Script attached to "player5" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player5"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.952Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player6/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.953Z - warn: Script attached to "player6" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player6"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.956Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player7/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.957Z - warn: Script attached to "player7" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player7"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.959Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player8/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.960Z - warn: Script attached to "player8" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player8"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.962Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player9/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.963Z - warn: Script attached to "player9" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player9"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.965Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player10/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.966Z - warn: Script attached to "player10" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player10"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.968Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player11/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.970Z - warn: Script attached to "player11" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player11"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.974Z - warn: Script attached to "cards" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player12/cards"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "f7230ee9-ec70-421b-81b7-f2792eee46d5"
+Class ID: "f72307p7HBCG4G38nku7kbV"
+
+2018-07-13T03:24:48.976Z - warn: Script attached to "player12" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game_players/player12"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.977Z - warn: Script attached to "state" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game/state"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
+Class ID: "9271046E0BCC7f0JOuhfb7j"
+
+2018-07-13T03:24:48.980Z - warn: Script attached to "self" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/game/self"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cb3d042c-8612-4b5f-9b6c-b0c4baf729cf"
+Class ID: "cb3d0QshhJLX5tssMS69ynP"
+
+2018-07-13T03:24:48.989Z - warn: Script attached to "idler" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas/idler"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "8c52e450-5254-4d94-b8db-6b058f0a3167"
+Class ID: "8c52eRQUlRNlLjbawWPCjFn"
+
+2018-07-13T03:24:48.990Z - warn: Script attached to "Canvas" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "9ae70a29-5d9c-4342-92ec-7fabffd33a97"
+Class ID: "9ae70opXZxDQpLsf6v/0zqX"
+
+2018-07-13T03:24:48.990Z - warn: Script attached to "Canvas" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "bdc10f70-94cf-46e1-9e60-9d30f42112c2"
+Class ID: "bdc109wlM9G4Z5gnTD0IRLC"
+
+2018-07-13T03:24:48.990Z - warn: Script attached to "Canvas" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "fe3ed6f0-8105-4663-92b9-17793de4816c"
+Class ID: "fe3edbwgQVGY5K5F3k95IFs"
+
+2018-07-13T03:24:48.991Z - warn: Script attached to "Canvas" in scene "bull.fire" is missing or invalid. Detailed information:
+Node path: "Canvas"
+Asset url: "db://assets/resources/Scene/bull.fire"
+Script UUID: "cd6cd1a8-ae44-4133-adb3-a2612173539f"
+Class ID: "cd6cdGorkRBM62zomEhc1Of"
+
+2018-07-13T03:24:49.078Z - warn: Script attached to "back_2" in prefab "card_item.prefab" is missing or invalid. Detailed information:
+Node path: "back_2"
+Asset url: "db://assets/resources/Prefab/card_item.prefab"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:24:49.109Z - warn: Script attached to "item" in prefab "idler_item.prefab" is missing or invalid. Detailed information:
+Node path: "item"
+Asset url: "db://assets/resources/Prefab/idler_item.prefab"
+Script UUID: "a7e6b157-3559-4782-889f-65a0c1790075"
+Class ID: "a7e6bFXNVlHgoifZaDBeQB1"
+
+2018-07-13T03:24:49.112Z - warn: Script attached to "coin" in prefab "coin.prefab" is missing or invalid. Detailed information:
+Node path: "coin"
+Asset url: "db://assets/resources/Prefab/coin.prefab"
+Script UUID: "4c85d444-ab2a-4738-b9e6-99ee1dac0692"
+Class ID: "4c85dREqypHOLnmme4drAaS"
+
+2018-07-13T03:24:49.123Z - warn: Script attached to "cuopai" in prefab "cuopai.prefab" is missing or invalid. Detailed information:
+Node path: "cuopai"
+Asset url: "db://assets/resources/Prefab/cuopai.prefab"
+Script UUID: "d29c374b-4130-494b-a18d-84d6a6a1aebd"
+Class ID: "d29c3dLQTBJS6GNhNamoa69"
+
+2018-07-13T03:24:49.128Z - warn: Script attached to "alert" in prefab "alert.prefab" is missing or invalid. Detailed information:
+Node path: "alert"
+Asset url: "db://assets/resources/Prefab/alert.prefab"
+Script UUID: "5fb98602-06da-4a18-803d-7c5445e726cc"
+Class ID: "5fb98YCBtpKGIA9fFRF5ybM"
+
+2018-07-13T03:24:49.129Z - warn: Script attached to "alert" in prefab "alert.prefab" is missing or invalid. Detailed information:
+Node path: "alert"
+Asset url: "db://assets/resources/Prefab/alert.prefab"
+Script UUID: "36c30a6c-607b-46e1-b137-32bc90bb6f9d"
+Class ID: "36c30psYHtG4bE3MryQu2+d"
+
+2018-07-13T03:24:49.132Z - warn: Script attached to "loading" in prefab "loading.prefab" is missing or invalid. Detailed information:
+Node path: "loading"
+Asset url: "db://assets/resources/Prefab/loading.prefab"
+Script UUID: "15f35465-e131-483d-8c89-5ead53ec0554"
+Class ID: "15f35Rl4TFIPYyJXq1T7AVU"
+
+2018-07-13T03:41:00.860Z - warn: Script attached to "back_2" in prefab "card_item.prefab" is missing or invalid. Detailed information:
+Node path: "back_2"
+Asset url: "db://assets/resources/Prefab/card_item.prefab"
+Script UUID: "aeee7dae-f2bb-410a-b284-5b7acf0d020e"
+Class ID: "aeee72u8rtBCrKEW3rPDQIO"
+
+2018-07-13T03:41:00.869Z - warn: Script attached to "item" in prefab "idler_item.prefab" is missing or invalid. Detailed information:
+Node path: "item"
+Asset url: "db://assets/resources/Prefab/idler_item.prefab"
+Script UUID: "a7e6b157-3559-4782-889f-65a0c1790075"
+Class ID: "a7e6bFXNVlHgoifZaDBeQB1"
+
+2018-07-13T03:41:00.872Z - warn: Script attached to "coin" in prefab "coin.prefab" is missing or invalid. Detailed information:
+Node path: "coin"
+Asset url: "db://assets/resources/Prefab/coin.prefab"
+Script UUID: "4c85d444-ab2a-4738-b9e6-99ee1dac0692"
+Class ID: "4c85dREqypHOLnmme4drAaS"
+
+2018-07-13T03:41:00.880Z - warn: Script attached to "cuopai" in prefab "cuopai.prefab" is missing or invalid. Detailed information:
+Node path: "cuopai"
+Asset url: "db://assets/resources/Prefab/cuopai.prefab"
+Script UUID: "d29c374b-4130-494b-a18d-84d6a6a1aebd"
+Class ID: "d29c3dLQTBJS6GNhNamoa69"
+
+2018-07-13T03:41:00.886Z - warn: Script attached to "alert" in prefab "alert.prefab" is missing or invalid. Detailed information:
+Node path: "alert"
+Asset url: "db://assets/resources/Prefab/alert.prefab"
+Script UUID: "5fb98602-06da-4a18-803d-7c5445e726cc"
+Class ID: "5fb98YCBtpKGIA9fFRF5ybM"
+
+2018-07-13T03:41:00.887Z - warn: Script attached to "alert" in prefab "alert.prefab" is missing or invalid. Detailed information:
+Node path: "alert"
+Asset url: "db://assets/resources/Prefab/alert.prefab"
+Script UUID: "36c30a6c-607b-46e1-b137-32bc90bb6f9d"
+Class ID: "36c30psYHtG4bE3MryQu2+d"
+
+2018-07-13T03:41:00.890Z - warn: Script attached to "loading" in prefab "loading.prefab" is missing or invalid. Detailed information:
+Node path: "loading"
+Asset url: "db://assets/resources/Prefab/loading.prefab"
+Script UUID: "15f35465-e131-483d-8c89-5ead53ec0554"
+Class ID: "15f35Rl4TFIPYyJXq1T7AVU"
+
+2018-07-13T03:55:39.128Z - normal: Simulator: WORKAREA WIDTH 1440.00, HEIGHT 793.00
+2018-07-13T03:55:39.130Z - normal: Simulator: FRAME SCALE = 1.00
+2018-07-13T03:55:39.145Z - normal: Simulator: GLFWError #65544 Happen, Cocoa: Failed to retrieve display name
+2018-07-13T03:55:39.279Z - normal: Simulator: 
+2018-07-13T03:55:39.280Z - normal: Simulator: {
+2018-07-13T03:55:39.280Z - normal: Simulator: 	gl.supports_OES_map_buffer: false
+2018-07-13T03:55:39.281Z - normal: Simulator: 	gl.supports_vertex_array_object: true
+2018-07-13T03:55:39.281Z - normal: Simulator: 	cocos2d.x.version: 1.6.1
+2018-07-13T03:55:39.281Z - normal: Simulator: 	gl.vendor: Intel Inc.
+2018-07-13T03:55:39.281Z - normal: Simulator: 	gl.supports_PVRTC: false
+2018-07-13T03:55:39.282Z - normal: Simulator: 	gl.renderer: Intel Iris Pro OpenGL Engine
+2018-07-13T03:55:39.282Z - normal: Simulator: 	cocos2d.x.compiled_with_profiler: false
+2018-07-13T03:55:39.283Z - normal: Simulator: 	gl.max_texture_size: 16384
+2018-07-13T03:55:39.330Z - normal: Simulator: 	gl.supports_ETC1: false
+2018-07-13T03:55:39.331Z - normal: Simulator: 	gl.supports_BGRA8888: false
+2018-07-13T03:55:39.331Z - normal: Simulator: 	cocos2d.x.build_type: DEBUG
+2018-07-13T03:55:39.331Z - normal: Simulator: 	gl.max_texture_units: 16
+2018-07-13T03:55:39.331Z - normal: Simulator: 	gl.supports_OES_packed_depth_stencil: false
+2018-07-13T03:55:39.331Z - normal: Simulator: 	gl.supports_discard_framebuffer: false
+2018-07-13T03:55:39.332Z - normal: Simulator: 	gl.supports_NPOT: true
+2018-07-13T03:55:39.332Z - normal: Simulator: 	gl.version: 2.1 INTEL-10.34.27
+2018-07-13T03:55:39.332Z - normal: Simulator: 	cocos2d.x.compiled_with_gl_state_cache: true
+2018-07-13T03:55:39.332Z - normal: Simulator: 	gl.supports_OES_depth24: false
+2018-07-13T03:55:39.333Z - normal: Simulator: }
+2018-07-13T03:55:39.333Z - normal: Simulator: 
+2018-07-13T03:55:39.333Z - normal: Simulator: 
+2018-07-13T03:55:39.333Z - normal: Simulator: cocos2d: warning, Director::setProjection() failed because size is 0
+2018-07-13T03:55:39.335Z - normal: Simulator: Project Config:
+2018-07-13T03:55:39.335Z - normal: Simulator:     project dir: /Applications/CocosCreator.app/Contents/Resources/cocos2d-x/simulator/mac/Simulator.app/Contents/Resources/
+2018-07-13T03:55:39.336Z - normal: Simulator:     writable path: $(PROJDIR)/
+2018-07-13T03:55:39.337Z - normal: Simulator:     script file: $(PROJDIR)/main.js
+2018-07-13T03:55:39.337Z - normal: Simulator:     frame size: 1218 x 750
+2018-07-13T03:55:39.337Z - normal: Simulator:     frame scale: 1.00
+2018-07-13T03:55:39.337Z - normal: Simulator:     show console: NO
+2018-07-13T03:55:39.338Z - normal: Simulator:     write debug log: NO ()
+2018-07-13T03:55:39.338Z - normal: Simulator:     listen: 
+2018-07-13T03:55:39.338Z - normal: Simulator:     debugger: none
+2018-07-13T03:55:39.338Z - normal: Simulator:     add searching path:
+2018-07-13T03:55:39.338Z - normal: Simulator: 
+2018-07-13T03:55:39.339Z - normal: Simulator: 
+2018-07-13T03:55:39.339Z - normal: Simulator: 
+2018-07-13T03:55:39.339Z - normal: Simulator: ------------------------------------------------
+2018-07-13T03:55:39.340Z - normal: Simulator: LOAD Js FILE: main.js
+2018-07-13T03:55:39.340Z - normal: Simulator: ------------------------------------------------
+2018-07-13T03:55:39.483Z - normal: Simulator: Cocos2d-x-lite v1.6.0
+2018-07-13T03:55:39.808Z - normal: Simulator: iShow!
+2018-07-13T03:55:40.286Z - normal: Simulator: InitScene: 4.150999999999954ms
+2018-07-13T03:55:40.286Z - normal: Simulator: AutoRelease: 0.58400000000006ms
+2018-07-13T03:55:40.287Z - normal: Simulator: Destroy: 0.08399999999994634ms
+2018-07-13T03:55:40.287Z - normal: Simulator: AttachPersist: 0.009000000000014552ms
+2018-07-13T03:55:40.336Z - normal: Simulator: opening server connection...
+2018-07-13T03:55:40.359Z - normal: Simulator: Activate: 61.91799999999989ms
+2018-07-13T03:55:44.256Z - normal: Simulator: HttpClient singleton is nullptr
+2018-07-13T03:55:44.317Z - normal: Simulator: jsbindings: finalizing JS object 0xda68af0 (WebSocket)
+2018-07-13T03:55:44.318Z - normal: Simulator: basic_object_finalize 0xcce26a0 ...
+2018-07-13T03:55:44.318Z - normal: Simulator: jsbindings: finalizing JS object 0xcce26d0 (WebSocket)
+2018-07-13T03:55:44.319Z - normal: Simulator: jsbindings: finalizing JS object 0xcce2700 (SocketIO)
+2018-07-13T03:55:44.319Z - normal: Simulator: JavaScriptObjCBridge_finalize 0xcce2790 ...
+2018-07-13T03:55:44.319Z - normal: Simulator: JavaScriptObjCBridge_finalize 0xcce2a00 ...

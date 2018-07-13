@@ -1,0 +1,26 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "loading.plist",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_spriteFrames": {
+    "dian1": {
+      "__uuid__": "14a6eb75-2a87-4e69-8ddd-d4936a59a8fc"
+    },
+    "dian2": {
+      "__uuid__": "28d144be-1dc1-4662-9255-f78d12daada7"
+    },
+    "dian3": {
+      "__uuid__": "d5967aeb-c547-4549-8bff-6875d691152c"
+    },
+    "dian4": {
+      "__uuid__": "0ab05e71-050c-46e7-bd27-2c24a217c454"
+    },
+    "dian5": {
+      "__uuid__": "bd216ada-450f-44b0-8b41-c285f174677b"
+    },
+    "dian6": {
+      "__uuid__": "45754814-5462-4f4a-bb2e-4d459131733b"
+    }
+  }
+}

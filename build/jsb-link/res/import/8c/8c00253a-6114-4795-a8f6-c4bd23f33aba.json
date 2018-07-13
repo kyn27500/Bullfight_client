@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"shake","_duration":0.2,"sample":20,"curveData":{"props":{"rotation":[{"frame":0,"value":0},{"frame":0.05,"value":-10},{"frame":0.1,"value":0},{"frame":0.15,"value":10},{"frame":0.2,"value":0}]}}}

@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"reset","curveData":{"paths":{"body/Top":{"props":{"y":[{"frame":0,"value":150}]}},"body/Bottom":{"props":{"y":[{"frame":0,"value":-80}]}},"text/open":{"props":{"active":[{"frame":0,"value":false}]}},"text/locked":{"props":{"y":[{"frame":0,"value":216}],"active":[{"frame":0,"value":true}]}}}}}
