@@ -35,13 +35,13 @@ cc.Class({
     // },
     start() {
 
-        var data = {
-            name: "唱山歌",
-            playerId: 123,
-            notice: "我是公告！",
-            score: 23422,
-        }
-        self.setUserInfo(data)
+        // var data = {
+        //     name: "唱山歌",
+        //     playerId: 123,
+        //     notice: "我是公告！",
+        //     score: 23422,
+        // }
+        // self.setUserInfo(data)
     },
 
     onDestroy() {
@@ -90,6 +90,10 @@ cc.Class({
         cc.loader.loadRes("Prefab/join_room", onResourceLoaded);
     },
 
+    /**
+     * 设置用户信息
+     * @param {*} data 
+     */
     setUserInfo(data) {
         self.labelName.string = data.name;
         self.labelPlayerId.string = data.uid;

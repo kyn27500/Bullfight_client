@@ -1,4 +1,4 @@
-
+var cartTypeAtlas;
 cc.Class({
     extends: cc.Component,
 
@@ -15,6 +15,8 @@ cc.Class({
         spType: cc.Sprite,         //牌型
         labelWinScore: cc.Label,   //赢得的分数
 
+        ctAtlas: cc.SpriteAtlas,    //图集 牛牛类型
+
     },
 
     // use this for initialization
@@ -23,6 +25,9 @@ cc.Class({
         this.node.active = false;
         this.spSgin.node.active = false;
 
+        // 只需要设置一次就可以了
+        console.log("检测图集是否存在:",cartTypeAtlas,this.ctAtlas);
+        cartTypeAtlas = cartTypeAtlas||this.ctAtlas;
     },
 
     /**
@@ -64,7 +69,18 @@ cc.Class({
      */
     setReady(isReady){
         this.spReady.node.active = isReady;
-    }
+    },
+
+    /**
+     * 设置牌型
+     * @param {*} pType 
+     */
+    setCartType(pType){
+        this.spType.node.active = true
+        this.spType.spriteFrame = cartTypeAtlas.getSpriteFrame(pType);
+    },
+
+    
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 

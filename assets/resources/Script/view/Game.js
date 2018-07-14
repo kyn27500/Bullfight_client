@@ -26,7 +26,7 @@ cc.Class({
             [events.game.S2C_SEAT_CHOOSE, this.onReceive_sitDown, this],
             [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this],
             [events.game.S2C_READY, this.onReceive_Ready, this],
-            // [events.game.tiaoyitiao.S2C_GAMEOVER, this.onReceive_overGame, this],
+            [events.game.S2C_CARDS, this.onReceive_cards, this],
         ]
         listenerList.forEach(element => {
             onfire.on(element[0], element[1], element[2]);
@@ -89,7 +89,6 @@ cc.Class({
         // self.seats[self.mySeatId].active = false;
         // self.players[self.mySeatId].create(self.userInfo)
         console.log("坐下返回：", data);
-        self.btnReady.active = true;
     },
 
     /**
@@ -107,12 +106,20 @@ cc.Class({
             self.seats[self.mySeatId].active = false;
             var index = list.indexOf(seatId);
             list.splice(index, 1);
+
+            // 复制自己的信息
+            if(self.userInfo.uid == element.user.id){
+                self.seatInfo = element;
+                self.btnReady.active = ! element.ready;
+            }
         });
 
         // 显示其他 坐下按钮
         list.forEach(element => {
             self.seats[element].active = true;
         });
+
+        
     },
 
     sendReady() {
@@ -124,9 +131,21 @@ cc.Class({
 
     },
 
+    /**
+     * 准备 返回
+     * @param {*} data 
+     */
     onReceive_Ready(data) {
         if (data.result == 0) {
-            self.btnReady.active = false;
+
         }
-    }
+    },
+
+    /**
+     *  发送牌数据
+     * @param {*} data 
+     */
+    onReceive_cards(data) {
+        console.log("发送牌数据：", data)
+    },
 });
