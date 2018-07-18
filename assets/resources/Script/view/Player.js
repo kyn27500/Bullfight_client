@@ -26,8 +26,7 @@ cc.Class({
         this.spSgin.node.active = false;
 
         // 只需要设置一次就可以了
-        console.log("检测图集是否存在:",cartTypeAtlas,this.ctAtlas);
-        cartTypeAtlas = cartTypeAtlas||this.ctAtlas;
+        cartTypeAtlas = cartTypeAtlas || this.ctAtlas;
     },
 
     /**
@@ -44,8 +43,12 @@ cc.Class({
         this.spType.node.active = false;
         this.cardNode.active = false;
         this.labelWinScore.node.active = false;
+
+        // 设置准备状态
         this.setReady(data.ready);
-        
+        // 设置是否是庄家
+        this.setBanker(data.banker);
+
     },
 
     /**
@@ -62,12 +65,12 @@ cc.Class({
     setScore(nScore) {
         this.labelScore.string = nScore;
     },
-    
+
     /**
      * 设置是否显示准备
      * @param {*} isReady 
      */
-    setReady(isReady){
+    setReady(isReady) {
         this.spReady.node.active = isReady;
     },
 
@@ -75,14 +78,36 @@ cc.Class({
      * 设置牌型
      * @param {*} pType 
      */
-    setCartType(pType){
+    setCartType(pType) {
         this.spType.node.active = true
         this.spType.spriteFrame = cartTypeAtlas.getSpriteFrame(pType);
     },
 
-    
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    /**
+     * 设置是否是庄家
+     * @param {*} isBanker 
+     */
+    setBanker(isBanker) {
+        // this.spSgin.parent.node.getChildByName("border").node.active = isBanker;
+        this.spSgin.node.active = isBanker;
+    },
 
-    // },
+    /**
+     * 发牌动画
+     */
+    sendCardAction(pCallback){
+        var pos = cc.p(cc.winSize.width/2,cc.winSize.height/2);
+        pos = this.node.convertToNodeSpace(pos);
+
+        this.cardNode.active = true;
+        if(pCallback){
+            pCallback()
+        };
+    }
+
+    /**
+     * 
+     */
+
+
 });

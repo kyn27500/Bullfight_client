@@ -27,6 +27,8 @@ cc.Class({
             [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this],
             [events.game.S2C_READY, this.onReceive_Ready, this],
             [events.game.S2C_CARDS, this.onReceive_cards, this],
+            [events.game.S2C_GAME_STATE, this.onReceive_gameState, this],
+
         ]
         listenerList.forEach(element => {
             onfire.on(element[0], element[1], element[2]);
@@ -66,6 +68,10 @@ cc.Class({
      * @param {*} seatId 
      */
     sitDown(event, seatId) {
+
+        if (self.seatInfo && !self.seatInfo.ready) {
+            return;
+        }
         seatId = Number(seatId);
         if (self.mySeatId) {
             // self.seats[self.mySeatId].active = true;
@@ -97,6 +103,7 @@ cc.Class({
      */
     onReceive_syn_seat(data) {
         console.log("同步坐下玩家信息：", data);
+        self.seatPlayers = data.seatPlayers;
         var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         data.seatPlayers.forEach(element => {
             // 显示玩家数据
@@ -108,9 +115,9 @@ cc.Class({
             list.splice(index, 1);
 
             // 复制自己的信息
-            if(self.userInfo.uid == element.user.id){
+            if (self.userInfo.uid == element.user.id) {
                 self.seatInfo = element;
-                self.btnReady.active = ! element.ready;
+                self.btnReady.active = !element.ready;
             }
         });
 
@@ -119,7 +126,7 @@ cc.Class({
             self.seats[element].active = true;
         });
 
-        
+
     },
 
     sendReady() {
@@ -128,7 +135,6 @@ cc.Class({
             seatId: self.mySeatId
         }
         requestHandler.sendRequest(events.game.C2S_READY, data);
-
     },
 
     /**
@@ -147,5 +153,24 @@ cc.Class({
      */
     onReceive_cards(data) {
         console.log("发送牌数据：", data)
+
+        self.seatPlayers.forEach(element => {
+            // if (self.userInfo.uid == element.user.id) {
+
+            // }else{
+            self.players[element.seatIndex].sendCardAction()
+            // }
+
+        });
     },
+
+    /**
+     * 游戏状态值
+     * @param {*} data 
+     */
+    onReceive_gameState(data) {
+        console.log("游戏状态：", data.state, data.currentGameNum)
+    },
+
+
 });

@@ -116,6 +116,25 @@ var CustomEvents = {
          */
         S2C_READY: "gameReadyS2C",
 
+        /**
+         * 发送牌信息
+         */
+        S2C_CARDS:"userCardPlayS2C",
+
+        /**
+         * 押注
+         */
+        C2S_BET:"playerBetC2S",
+
+        /**
+         * 押注
+         */
+        S2C_BET:"playerBetS2C",
+
+         /**
+         * 服务端返回：游戏状态值
+         */
+        S2C_GAME_STATE: "gameStateS2C",
     },
 
     /**
