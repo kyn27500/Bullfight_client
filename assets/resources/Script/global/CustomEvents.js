@@ -111,30 +111,74 @@ var CustomEvents = {
          */
         C2S_READY: "gameReadyC2S",
 
-         /**
-         * 游戏准备
-         */
+        /**
+        * 游戏准备
+        */
         S2C_READY: "gameReadyS2C",
 
         /**
          * 发送牌信息
          */
-        S2C_CARDS:"userCardPlayS2C",
+        S2C_CARDS: "userCardPlayS2C",
 
         /**
          * 押注
          */
-        C2S_BET:"playerBetC2S",
+        C2S_BET: "playerBetC2S",
 
         /**
          * 押注
          */
-        S2C_BET:"playerBetS2C",
+        S2C_BET: "playerBetS2C",
 
-         /**
-         * 服务端返回：游戏状态值
-         */
+        /**
+        * 服务端返回：游戏状态值
+        */
         S2C_GAME_STATE: "gameStateS2C",
+
+        /**
+         * 抢庄
+         */
+        C2S_ROB_BANKER: "playerRobBankerC2S",
+
+        /**
+         * 抢庄回调
+         */
+        S2C_ROB_BANKER: "playerRobBankerS2C",
+
+        /**
+         * 抢庄结果回调
+         */
+        S2C_ROOM_BANKER: "roomBankerS2C",
+
+        /**
+         * 下注
+         */
+        C2S_BET: "playerBetC2S",
+
+        /**
+         * 下注 回调
+         */
+        S2C_BET: "playerBetS2C",
+
+        /**
+         * 最后一张牌
+         */
+        S2C_LAST_CARD: "lastOneCardS2C",
+
+        /**
+         * 开牌协议 单人
+         */
+        C2S_OPEN_CARD: "CardShowResultC2S",
+
+        /**
+         * 显示开牌
+         */
+        S2C_OPEN_CARD: "cardShowResultS2C",
+
+
+
+
     },
 
     /**

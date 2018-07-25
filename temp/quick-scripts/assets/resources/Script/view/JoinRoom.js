@@ -22,7 +22,7 @@ cc.Class({
     onLoad: function onLoad() {
         self = this;
         onfire.on(events.hall.userJoinRoomS2C, self.joinRoomS2C);
-        self.editBox.string = '035645';
+        self.editBox.string = '222222';
     },
 
     onClickForEnter: function onClickForEnter() {

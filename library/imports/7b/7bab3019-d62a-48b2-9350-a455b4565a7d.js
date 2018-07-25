@@ -4,6 +4,10 @@ cc._RF.push(module, '7bab3AZ1ipIspNQpFW0Vlp9', 'CustomEvents');
 
 "use strict";
 
+var _game;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * 事件定义
  */
@@ -86,7 +90,7 @@ var CustomEvents = {
   /**
    * 游戏事件
    */
-  game: {
+  game: (_game = {
     /**
      * 客户端请求：登录
      */
@@ -120,9 +124,44 @@ var CustomEvents = {
     /**
     * 游戏准备
     */
-    S2C_READY: "gameReadyS2C"
+    S2C_READY: "gameReadyS2C",
 
-  },
+    /**
+     * 发送牌信息
+     */
+    S2C_CARDS: "userCardPlayS2C",
+
+    /**
+     * 押注
+     */
+    C2S_BET: "playerBetC2S",
+
+    /**
+     * 押注
+     */
+    S2C_BET: "playerBetS2C",
+
+    /**
+    * 服务端返回：游戏状态值
+    */
+    S2C_GAME_STATE: "gameStateS2C",
+
+    /**
+     * 抢庄
+     */
+    C2S_ROB_BANKER: "playerRobBankerC2S",
+
+    /**
+     * 抢庄回调
+     */
+    S2C_ROB_BANKER: "playerRobBankerS2C",
+
+    /**
+     * 抢庄结果回调
+     */
+    S2C_ROOM_BANKER: "roomBankerS2C"
+
+  }, _defineProperty(_game, "C2S_BET", "playerBetC2S"), _defineProperty(_game, "S2C_BET", "playerBetS2C"), _defineProperty(_game, "S2C_LAST_CARD", "lastOneCardS2C"), _defineProperty(_game, "C2S_OPEN_CARD", "CardShowResultC2S"), _defineProperty(_game, "S2C_OPEN_CARD", "cardShowResultS2C"), _game),
 
   /**
    * 预制事件

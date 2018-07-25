@@ -16,7 +16,7 @@ cc.Class({
     onLoad: function () {
         self = this;
         onfire.on(events.hall.userJoinRoomS2C, self.joinRoomS2C);
-        self.editBox.string = '035645';
+        self.editBox.string = '222222';
     },
 
     onClickForEnter(){
