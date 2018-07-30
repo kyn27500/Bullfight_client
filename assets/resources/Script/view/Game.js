@@ -38,8 +38,8 @@ cc.Class({
             [events.game.S2C_BET, this.onReceive_bet, this],
             [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this],
             [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this],
-            
-            
+
+
 
         ]
         listenerList.forEach(element => {
@@ -65,15 +65,17 @@ cc.Class({
         self.myPlayerObj = self.myPlayer.getComponent("Player");
         self.btnReady.active = false;
 
-        self.players[8].create();
-        self.players[8].sendCardAction(this.centerNode);
+        // self.players[8].create();
+        // self.players[8].sendCardAction(this.centerNode);
 
-        self.players[1].create();
-        self.players[1].sendCardAction(this.centerNode);
+        // self.players[1].create();
+        // self.players[1].sendCardAction(this.centerNode);
 
-        self.myPlayerObj.create();
-        self.myPlayerObj.sendCardAction(this.centerNode);
-        
+        // self.myPlayerObj.create();
+        // self.myPlayerObj.sendCardAction(this.centerNode);
+
+        // self.myPlayerObj.openLastCard([17, 18, 19, 20, 21], 21);
+
     },
 
     /**
@@ -165,7 +167,8 @@ cc.Class({
      */
     onReceive_Ready(data) {
         if (data.result == 0) {
-
+            self.myPlayerObj.create(self.seatInfo);
+            self.players[self.mySeatId].sitUp();
         }
     },
 
@@ -178,9 +181,10 @@ cc.Class({
 
         self.seatPlayers.forEach(element => {
             if (self.userInfo.uid == element.user.id) {
-                self.players[element.seatIndex].sendCardAction(data)
-            }else{
-                self.players[element.seatIndex].sendCardAction()
+                self.myPlayerObj.sendCardAction(this.centerNode, data.playerCards)
+
+            } else {
+                self.players[element.seatIndex].sendCardAction(this.centerNode)
             }
 
         });
@@ -207,10 +211,16 @@ cc.Class({
 
             //开始游戏，发牌
         } else if (data.state == 1) {
-            
+            // 设置 准备状态消失
+            self.players.forEach(element => {
+                element.setReady(false);
+            });
+
+
+
             //抢庄
         } else if (data.state == 2) {
-            
+
             //普通玩家下注
         } else if (data.state == 3) {
 
@@ -236,9 +246,9 @@ cc.Class({
      */
     onClickForBanker(event, multiple) {
         var data = {
-            roomNo:self.roomCode,
-		    seatId:self.mySeatId,
-            betPointQuantity:Number(multiple)
+            roomNo: self.roomCode,
+            seatId: self.mySeatId,
+            betPointQuantity: Number(multiple)
         }
         requestHandler.sendRequest(events.game.C2S_ROB_BANKER, data);
     },
@@ -247,11 +257,11 @@ cc.Class({
      * 抢庄回调
      * @param {*} data 
      */
-    onReceive_robBanker(data){
-        console.log("抢庄回调：",data);
+    onReceive_robBanker(data) {
+        console.log("抢庄回调：", data);
     },
 
-    
+
 
     /**
      * 下注
@@ -260,9 +270,9 @@ cc.Class({
      */
     onClickForBet(event, multiple) {
         var data = {
-            roomNo:self.roomCode,
-		    seatId:self.mySeatId,
-            betPointQuantity:Number(multiple)
+            roomNo: self.roomCode,
+            seatId: self.mySeatId,
+            betPointQuantity: Number(multiple)
         }
         requestHandler.sendRequest(events.game.C2S_BET, data);
     },
@@ -271,41 +281,41 @@ cc.Class({
      * 下注回调
      * @param {*} data 
      */
-    onReceive_bet(data){
-        console.log("下注回调：",data);
+    onReceive_bet(data) {
+        console.log("下注回调：", data);
     },
 
     /**
      * 抢庄结果回调
      * @param {*} data 
      */
-    onReceive_roomBanker(data){
-        console.log("庄家ID 回调：",data)
-    },
-    
-     /**
-     * 接受最后一张牌
-     * @param {*} data 
-     */
-    onReceive_lastCard(data){
-        console.log("庄家ID 回调：",data)
+    onReceive_roomBanker(data) {
+        console.log("庄家ID 回调：", data)
     },
 
-     /**
-     * 
-     * @param {*} data 
-     */
-    onReceive_lastCard(data){
-        console.log("庄家ID 回调：",data)
+    /**
+    * 接受最后一张牌
+    * @param {*} data 
+    */
+    onReceive_lastCard(data) {
+        console.log("庄家ID 回调：", data)
+    },
+
+    /**
+    * 
+    * @param {*} data 
+    */
+    onReceive_lastCard(data) {
+        console.log("庄家ID 回调：", data)
     },
 
     /**
      * 设置状态
      * @param {*} state 
      */
-    setGameState(state){
-        
+    setGameState(state) {
+
     },
-    
-    
+
+
 });
