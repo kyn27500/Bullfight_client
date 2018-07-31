@@ -132,7 +132,7 @@ cc.Class({
         data.seatPlayers.forEach(element => {
             // 显示玩家数据
             var seatId = element.seatIndex
-            self.players[seatId].create(element)
+           
             // 隐藏坐下按钮
             self.seats[self.mySeatId].active = false;
             var index = list.indexOf(seatId);
@@ -142,6 +142,14 @@ cc.Class({
             if (self.userInfo.uid == element.user.id) {
                 self.seatInfo = element;
                 self.btnReady.active = !element.ready;
+
+                if (self.myPlayerObj.node.active){
+                    
+                }else{
+                    self.players[seatId].create(element)
+                }
+            }else{
+                self.players[seatId].create(element)
             }
         });
 
