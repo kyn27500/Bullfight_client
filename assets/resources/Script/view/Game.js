@@ -205,7 +205,7 @@ cc.Class({
         // 抢庄面板显示
         self.bankerNode.active = self.state == 2;
         // 下注倍数显示
-        self.betNode.active == self.state == 3 && !self.seatInfo.banker;
+        self.betNode.active == self.state == 3 && (!self.seatInfo.banker);
         //未开始
         if (data.state == 0) {
 
@@ -223,7 +223,7 @@ cc.Class({
 
             //普通玩家下注
         } else if (data.state == 3) {
-
+            console.log("下注按钮：查看自己是否是庄家",self.seatInfo.banker);
             //玩家看牌
         } else if (data.state == 4) {
 
@@ -233,6 +233,12 @@ cc.Class({
             //自动准备
         } else if (data.state == 6) {
 
+            self.players.forEach(element => {
+
+                element.setBanker(false);
+            });
+
+            self.myPlayerObj.setBanker(false);
 
         }
 
@@ -259,6 +265,7 @@ cc.Class({
      */
     onReceive_robBanker(data) {
         console.log("抢庄回调：", data);
+        self.bankerNode.active = false;
     },
 
 
@@ -291,6 +298,11 @@ cc.Class({
      */
     onReceive_roomBanker(data) {
         console.log("庄家ID 回调：", data)
+        if (data.seatId == self.mySeatId){
+            self.myPlayerObj.setBanker(true)
+        }else{
+            self.players[data.seatId].setBanker(true)
+        }
     },
 
     /**
