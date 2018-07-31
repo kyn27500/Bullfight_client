@@ -750,8 +750,8 @@
     "relativePath": "resources/Scene/hall.fire"
   },
   "a424772a-abda-45f4-ab05-31bea92fa8c8": {
-    "asset": 1532527332137,
-    "meta": 1532527332168,
+    "asset": 1533051887673,
+    "meta": 1533051887715,
     "relativePath": "resources/Scene/bull.fire"
   },
   "f33356f3-d6d0-43e5-9adf-1e71642ba627": {
@@ -1064,14 +1064,14 @@
     "meta": 1531980133282,
     "relativePath": "resources/Script/global/CustomEvents.js"
   },
-  "3a311747-b416-4062-bcc2-b40807dd8295": {
-    "asset": 1532350651449,
-    "meta": 1532350674731,
-    "relativePath": "resources/Script/view/Game.js"
-  },
   "080ee9a9-e3e4-4934-aa7c-f72415e1b96b": {
-    "asset": 1532529850201,
-    "meta": 1532529852119,
+    "asset": 1533051913666,
+    "meta": 1533051914796,
     "relativePath": "resources/Script/view/Player.js"
+  },
+  "3a311747-b416-4062-bcc2-b40807dd8295": {
+    "asset": 1533052128674,
+    "meta": 1533052130815,
+    "relativePath": "resources/Script/view/Game.js"
   }
 }

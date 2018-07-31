@@ -34,7 +34,7 @@ cc.Class({
         // 只需要设置一次就可以了
         cartTypeAtlas = cartTypeAtlas || this.ctAtlas;
         sf_cardList = sf_cardList || this.sf_cardList;
-        
+
     },
 
     /**
@@ -57,7 +57,7 @@ cc.Class({
         this.labelName.string = data.user.name;
         this.labelScore.string = data.score;
 
-        this.labelBet.node.active = false;
+        this.setBetNum(Math.max(data.robBankerBet, data.bet));
         this.spType.node.active = false;
         this.cardNode.active = false;
         this.labelWinScore.node.active = false;
@@ -100,6 +100,15 @@ cc.Class({
         }
     },
 
+    /**
+     * 下注倍数
+     * @param {*} num 
+     */
+    setBetNum(num) {
+        this.labelBet.node.active = num > 0;
+        this.labelBet.string = "x" + num;
+
+    },
     /**
      * 设置牌型
      * @param {*} pType 

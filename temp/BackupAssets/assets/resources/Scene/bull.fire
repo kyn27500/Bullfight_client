@@ -26611,8 +26611,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50.3,
-      "y": 52.7
+      "x": -28.299999999999997,
+      "y": 80.7
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26734,7 +26734,7 @@
       "__id__": 672
     },
     "ctAtlas": null,
-    "isMySelf": false,
+    "isMySelf": true,
     "cardList": [],
     "cardPosList": [],
     "sf_cardBg": null,

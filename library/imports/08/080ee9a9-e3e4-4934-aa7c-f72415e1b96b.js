@@ -5,6 +5,7 @@ cc._RF.push(module, '080eemp4+RJNKp89yQV4blr', 'Player');
 "use strict";
 
 var cartTypeAtlas;
+var sf_cardList;
 cc.Class({
     extends: cc.Component,
 
@@ -21,7 +22,7 @@ cc.Class({
         spType: cc.Sprite, //牌型
         labelWinScore: cc.Label, //赢得的分数
         ctAtlas: cc.SpriteAtlas, //图集 牛牛类型
-        isMySelf: false, //是否是自己
+        isMySelf: null, //是否是自己
 
         cardList: [], //牌列表
         cardPosList: [], //牌坐标 列表
@@ -38,6 +39,7 @@ cc.Class({
         }
         // 只需要设置一次就可以了
         cartTypeAtlas = cartTypeAtlas || this.ctAtlas;
+        sf_cardList = sf_cardList || this.sf_cardList;
     },
 
     /**
@@ -56,12 +58,12 @@ cc.Class({
             banker: false
         };
         this.data = data;
-        this.isMySelf = isMySelf;
+        // this.isMySelf = isMySelf;
         this.node.active = true;
         this.labelName.string = data.user.name;
         this.labelScore.string = data.score;
 
-        this.labelBet.node.active = false;
+        this.setBetNum(Math.max(data.robBankerBet, data.bet));
         this.spType.node.active = false;
         this.cardNode.active = false;
         this.labelWinScore.node.active = false;
@@ -108,6 +110,15 @@ cc.Class({
 
 
     /**
+     * 下注倍数
+     * @param {*} num 
+     */
+    setBetNum: function setBetNum(num) {
+        this.labelBet.node.active = num > 0;
+        this.labelBet.string = "x" + num;
+    },
+
+    /**
      * 设置牌型
      * @param {*} pType 
      */
@@ -142,12 +153,13 @@ cc.Class({
         for (var index = 0; index < 5; index++) {
 
             this.cardList[index].setPosition(pos);
+            this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames['back_2'];
+
             var delay = cc.delayTime(index * 0.05);
             var move = cc.moveTo(0.2, this.cardPosList[index]);
             var seq = cc.sequence(delay, move);
 
-            // if (index == 4 && cardData) {
-            if (index == 4) {
+            if (index == 4 && this.isMySelf) {
                 var $this = this;
                 var cf_openCard = cc.callFunc(function () {
                     $this.open4Card(cardData);
@@ -182,16 +194,14 @@ cc.Class({
             scale1 = cc.scaleBy(0.5, 0.1, 1);
             scale2 = cc.scaleBy(0.5, 10, 1);
             cf_setTexture = cc.callFunc(function () {
-                if ($this.sf_cardList) {
-                    $this.cardList[index].getComponent("cc.Sprite").spriteFrame = $this.sf_cardList._spriteFrames[17];
+                if (sf_cardList) {
+                    $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 }
             });
             seq = cc.sequence(scale1, cf_setTexture, scale2);
 
 
             _this2.cardList[index].runAction(seq);
-
-            if (_this2.sf_cardList) {}
         };
 
         for (var index = 0; index < 4; index++) {
@@ -202,6 +212,44 @@ cc.Class({
 
             _loop(index);
         }
+    },
+
+
+    // 最后一张牌，开牌
+    openLastCard: function openLastCard(cardData, lastCard, cardType) {
+        var $this = this;
+        var cf_showResult = cc.callFunc(function () {
+            var _loop2 = function _loop2(index) {
+                moveTo = cc.moveTo(0.4, $this.cardPosList[0]);
+                setSF = cc.callFunc(function () {
+                    $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
+                });
+                moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
+                seq = cc.sequence(moveTo, setSF, moveTo1);
+
+                $this.cardList[index].runAction(seq);
+            };
+
+            for (var index = 0; index < 5; index++) {
+                var moveTo;
+                var setSF;
+                var moveTo1;
+                var seq;
+
+                _loop2(index);
+            }
+        });
+
+        var scale1 = cc.scaleBy(0.4, 0.1, 1);
+        var scale2 = cc.scaleBy(0.4, 10, 1);
+        var delay = cc.delayTime(0.5);
+        var cf_setTexture = cc.callFunc(function () {
+            if (sf_cardList) {
+                $this.cardList[4].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[lastCard];
+            }
+        });
+        var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
+        this.cardList[4].runAction(seq);
     }
 });
 

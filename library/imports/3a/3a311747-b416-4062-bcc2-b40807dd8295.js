@@ -60,14 +60,16 @@ cc.Class((_cc$Class = {
         self.myPlayerObj = self.myPlayer.getComponent("Player");
         self.btnReady.active = false;
 
-        self.players[8].create();
-        self.players[8].sendCardAction(this.centerNode);
+        // self.players[8].create();
+        // self.players[8].sendCardAction(this.centerNode);
 
-        self.players[1].create();
-        self.players[1].sendCardAction(this.centerNode);
+        // self.players[1].create();
+        // self.players[1].sendCardAction(this.centerNode);
 
-        self.myPlayerObj.create();
-        self.myPlayerObj.sendCardAction(this.centerNode);
+        // self.myPlayerObj.create();
+        // self.myPlayerObj.sendCardAction(this.centerNode);
+
+        // self.myPlayerObj.openLastCard([17, 18, 19, 20, 21], 21);
     },
 
 
@@ -128,9 +130,9 @@ cc.Class((_cc$Class = {
         data.seatPlayers.forEach(function (element) {
             // 显示玩家数据
             var seatId = element.seatIndex;
-            self.players[seatId].create(element
+
             // 隐藏坐下按钮
-            );self.seats[self.mySeatId].active = false;
+            self.seats[self.mySeatId].active = false;
             var index = list.indexOf(seatId);
             list.splice(index, 1);
 
@@ -138,6 +140,26 @@ cc.Class((_cc$Class = {
             if (self.userInfo.uid == element.user.id) {
                 self.seatInfo = element;
                 self.btnReady.active = !element.ready;
+
+                if (!self.myPlayerObj.node.active) {
+                    self.players[seatId].create(element);
+                } else if (self.state == 2) {
+                    self.myPlayerObj.setBetNum(element.robBankerBet);
+                } else if (self.state == 3 && !element.banker) {
+                    self.myPlayerObj.setBetNum(element.bet);
+                } else if (self.state == 6) {
+                    self.myPlayerObj.setBetNum(0);
+                }
+            } else {
+                if (!self.players.node.active) {
+                    self.players[seatId].create(element);
+                } else if (self.state == 2) {
+                    self.players[seatId].setBetNum(element.robBankerBet);
+                } else if (self.state == 3 && !element.banker) {
+                    self.players[seatId].setBetNum(element.bet);
+                } else if (self.state == 6) {
+                    self.players[seatId].setBetNum(0);
+                }
             }
         });
 
@@ -160,7 +182,10 @@ cc.Class((_cc$Class = {
      * @param {*} data 
      */
     onReceive_Ready: function onReceive_Ready(data) {
-        if (data.result == 0) {}
+        if (data.result == 0) {
+            self.myPlayerObj.create(self.seatInfo);
+            self.players[self.mySeatId].sitUp();
+        }
     },
 
 
@@ -169,13 +194,15 @@ cc.Class((_cc$Class = {
      * @param {*} data 
      */
     onReceive_cards: function onReceive_cards(data) {
+        var _this = this;
+
         console.log("发送牌数据：", data);
 
         self.seatPlayers.forEach(function (element) {
             if (self.userInfo.uid == element.user.id) {
-                self.players[element.seatIndex].sendCardAction(data);
+                self.myPlayerObj.sendCardAction(_this.centerNode, data.playerCards);
             } else {
-                self.players[element.seatIndex].sendCardAction();
+                self.players[element.seatIndex].sendCardAction(_this.centerNode);
             }
         });
     },
@@ -202,13 +229,16 @@ cc.Class((_cc$Class = {
 
             //开始游戏，发牌
         } else if (data.state == 1) {
-
+            // 设置 准备状态消失
+            self.players.forEach(function (element) {
+                element.setReady(false);
+            });
             //抢庄
         } else if (data.state == 2) {
 
             //普通玩家下注
         } else if (data.state == 3) {
-
+            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker);
             //玩家看牌
         } else if (data.state == 4) {
 
@@ -216,7 +246,15 @@ cc.Class((_cc$Class = {
         } else if (data.state == 5) {
 
             //自动准备
-        } else if (data.state == 6) {}
+        } else if (data.state == 6) {
+
+            self.players.forEach(function (element) {
+
+                element.setBanker(false);
+            });
+
+            self.myPlayerObj.setBanker(false);
+        }
     },
 
 
@@ -241,6 +279,7 @@ cc.Class((_cc$Class = {
      */
     onReceive_robBanker: function onReceive_robBanker(data) {
         console.log("抢庄回调：", data);
+        self.bankerNode.active = false;
     },
 
 
@@ -274,6 +313,11 @@ cc.Class((_cc$Class = {
      */
     onReceive_roomBanker: function onReceive_roomBanker(data) {
         console.log("庄家ID 回调：", data);
+        if (data.seatId == self.mySeatId) {
+            self.myPlayerObj.setBanker(true);
+        } else {
+            self.players[data.seatId].setBanker(true);
+        }
     },
 
 

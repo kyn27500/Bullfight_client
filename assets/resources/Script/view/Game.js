@@ -143,13 +143,34 @@ cc.Class({
                 self.seatInfo = element;
                 self.btnReady.active = !element.ready;
 
-                if (self.myPlayerObj.node.active){
-                    
-                }else{
+                if (!self.myPlayerObj.node.active){
                     self.players[seatId].create(element)
                 }
+                else if(self.state == 2){
+                    self.myPlayerObj.setBetNum(element.robBankerBet)
+                }
+                else if(self.state == 3 && (!element.banker)){
+                    self.myPlayerObj.setBetNum(element.bet)
+                }
+                else if(self.state == 6){
+                    self.myPlayerObj.setBetNum(0)
+                }
+
+
             }else{
-                self.players[seatId].create(element)
+                if(!self.players.node.active){
+                    self.players[seatId].create(element)
+                }
+                else if(self.state == 2){
+                    self.players[seatId].setBetNum(element.robBankerBet)
+                }
+                else if(self.state == 3 && (!element.banker)){
+                    self.players[seatId].setBetNum(element.bet)
+                }
+                else if(self.state == 6){
+                    self.players[seatId].setBetNum(0)
+                }
+                
             }
         });
 
@@ -223,9 +244,6 @@ cc.Class({
             self.players.forEach(element => {
                 element.setReady(false);
             });
-
-
-
             //抢庄
         } else if (data.state == 2) {
 
