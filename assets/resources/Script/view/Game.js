@@ -38,6 +38,8 @@ cc.Class({
             [events.game.S2C_BET, this.onReceive_bet, this],
             [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this],
             [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this],
+            [events.game.S2C_OPEN_CARD, this.onReceive_openCard, this],
+
 
 
 
@@ -132,7 +134,7 @@ cc.Class({
         data.seatPlayers.forEach(element => {
             // 显示玩家数据
             var seatId = element.seatIndex
-           
+
             // 隐藏坐下按钮
             self.seats[self.mySeatId].active = false;
             var index = list.indexOf(seatId);
@@ -143,34 +145,34 @@ cc.Class({
                 self.seatInfo = element;
                 self.btnReady.active = !element.ready;
 
-                if (!self.myPlayerObj.node.active){
+                if (!self.myPlayerObj.node.active) {
                     self.players[seatId].create(element)
                 }
-                else if(self.state == 2){
+                else if (self.state == 2) {
                     self.myPlayerObj.setBetNum(element.robBankerBet)
                 }
-                else if(self.state == 3 && (!element.banker)){
+                else if (self.state == 3 && (!element.banker)) {
                     self.myPlayerObj.setBetNum(element.bet)
                 }
-                else if(self.state == 6){
+                else if (self.state == 6) {
                     self.myPlayerObj.setBetNum(0)
                 }
 
 
-            }else{
-                if(!self.players.node.active){
+            } else {
+                if (!self.players.node.active) {
                     self.players[seatId].create(element)
                 }
-                else if(self.state == 2){
+                else if (self.state == 2) {
                     self.players[seatId].setBetNum(element.robBankerBet)
                 }
-                else if(self.state == 3 && (!element.banker)){
+                else if (self.state == 3 && (!element.banker)) {
                     self.players[seatId].setBetNum(element.bet)
                 }
-                else if(self.state == 6){
+                else if (self.state == 6) {
                     self.players[seatId].setBetNum(0)
                 }
-                
+
             }
         });
 
@@ -235,11 +237,15 @@ cc.Class({
         self.bankerNode.active = self.state == 2;
         // 下注倍数显示
         self.betNode.active == self.state == 3 && (!self.seatInfo.banker);
+        // 摊牌按钮
+        self.operation.active = self.state == 4;
         //未开始
         if (data.state == 0) {
 
             //开始游戏，发牌
         } else if (data.state == 1) {
+            self.myLastCardData = null;
+
             // 设置 准备状态消失
             self.players.forEach(element => {
                 element.setReady(false);
@@ -249,7 +255,7 @@ cc.Class({
 
             //普通玩家下注
         } else if (data.state == 3) {
-            console.log("下注按钮：查看自己是否是庄家",self.seatInfo.banker);
+            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker);
             //玩家看牌
         } else if (data.state == 4) {
 
@@ -324,9 +330,9 @@ cc.Class({
      */
     onReceive_roomBanker(data) {
         console.log("庄家ID 回调：", data)
-        if (data.seatId == self.mySeatId){
+        if (data.seatId == self.mySeatId) {
             self.myPlayerObj.setBanker(true)
-        }else{
+        } else {
             self.players[data.seatId].setBanker(true)
         }
     },
@@ -337,14 +343,35 @@ cc.Class({
     */
     onReceive_lastCard(data) {
         console.log("庄家ID 回调：", data)
+        self.myLastCardData = data
+
+
+    },
+
+    /**
+     * 按钮开牌
+     */
+    onClickForOpenCard() {
+        if (self.myLastCardData) {
+
+            var data = {
+                roomNo: self.roomCode,
+                seatId: self.mySeatId
+            }
+            requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
+
+            this.myPlayerObj.openLastCard(self.myLastCardData.playerCard.sortedCards, self.myLastCardData.playerCard.cards[4]);
+        }
     },
 
     /**
     * 
     * @param {*} data 
     */
-    onReceive_lastCard(data) {
+    onReceive_openCard(data) {
         console.log("庄家ID 回调：", data)
+        
+        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4])
     },
 
     /**

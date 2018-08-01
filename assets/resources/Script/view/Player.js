@@ -106,7 +106,8 @@ cc.Class({
      */
     setBetNum(num) {
         this.labelBet.node.active = num > 0;
-        this.labelBet.string = "x" + num;
+        this.labelBet.string = "x1";
+        // this.labelBet.string = "x" + num;
 
     },
     /**
