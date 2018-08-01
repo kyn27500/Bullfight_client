@@ -360,7 +360,7 @@ cc.Class({
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
 
-            this.myPlayerObj.openLastCard(self.myLastCardData.playerCard.sortedCards, self.myLastCardData.playerCard.cards[4]);
+            this.myPlayerObj.openLastCard(self.myLastCardData.playerCard.sortedCards, self.myLastCardData.playerCard.cards[4], self.myLastCardData.playerCard.niuType);
         }
     },
 
@@ -370,8 +370,8 @@ cc.Class({
     */
     onReceive_openCard(data) {
         console.log("庄家ID 回调：", data)
-        
-        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4])
+
+        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.niuType)
     },
 
     /**

@@ -203,8 +203,11 @@ cc.Class({
                 var setSF = cc.callFunc(function () {
                     $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 });
+                var showType = cc.callFunc(function () {
+                    $this.setCartType(cardType);
+                });
                 var moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
-                var seq = cc.sequence(moveTo, setSF, moveTo1);
+                var seq = cc.sequence(moveTo, setSF, moveTo1, showType);
                 $this.cardList[index].runAction(seq);
             }
         });
