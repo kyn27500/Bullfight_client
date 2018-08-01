@@ -360,7 +360,7 @@ cc.Class({
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
 
-            this.myPlayerObj.openLastCard(self.myLastCardData.playerCard.sortedCards, self.myLastCardData.playerCard.cards[4], self.myLastCardData.playerCard.niuType);
+            this.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType);
         }
     },
 
