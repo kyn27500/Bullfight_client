@@ -160,7 +160,7 @@ cc.Class({
 
 
             } else {
-                if (!self.players.node.active) {
+                if (!self.players[seatId].node.active) {
                     self.players[seatId].create(element)
                 }
                 else if (self.state == 2) {
