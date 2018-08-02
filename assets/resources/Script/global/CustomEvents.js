@@ -169,7 +169,7 @@ var CustomEvents = {
         /**
          * 开牌协议 单人
          */
-        C2S_OPEN_CARD: "CardShowResultC2S",
+        C2S_OPEN_CARD: "cardShowResultC2S",
 
         /**
          * 显示开牌
