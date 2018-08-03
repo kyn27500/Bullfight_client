@@ -322,6 +322,7 @@ cc.Class({
      */
     onReceive_bet(data) {
         console.log("下注回调：", data);
+        self.betNode.active = false;
     },
 
     /**
