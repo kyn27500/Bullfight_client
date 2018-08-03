@@ -236,7 +236,7 @@ cc.Class({
         // 抢庄面板显示
         self.bankerNode.active = self.state == 2;
         // 下注倍数显示
-        self.betNode.active == self.state == 3 && self.bankerIndex != self.mySeatId;
+        self.betNode.active = self.state == 3 && self.bankerIndex != self.mySeatId;
         // 摊牌按钮
         self.operation.active = self.state == 4;
         //未开始
