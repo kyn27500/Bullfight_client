@@ -15,6 +15,15 @@ cc.Class({
         operation: cc.Node,
         centerNode: cc.Node,        //中心点
         myPlayer: cc.Node,          //我的节点
+        buttonTest: cc.Node,
+
+        sf_tableAtlas: cc.SpriteAtlas, //牌资源
+
+        spStateLabel: cc.Sprite,    //状态描述文字
+        clockNode: cc.Node,          //闹钟节点
+        clockLabel: cc.Label,        //闹钟label
+
+
 
     },
 
@@ -255,7 +264,7 @@ cc.Class({
 
             //普通玩家下注
         } else if (data.state == 3) {
-            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker,self.state == 3 && (!self.seatInfo.banker));
+            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker, self.state == 3 && (!self.seatInfo.banker));
             //玩家看牌
         } else if (data.state == 4) {
 
@@ -274,6 +283,7 @@ cc.Class({
 
         }
 
+        self.setGameState(self.state);
     },
 
 
@@ -382,7 +392,59 @@ cc.Class({
      */
     setGameState(state) {
 
+        self.clockNode.active = false;
+        //抢庄
+        if (data.state == 2) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_10"];
+            this.runClock(5);
+            //普通玩家下注
+        } else if (data.state == 3) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_18"];
+            this.runClock(5);
+            //玩家看牌
+        } else if (data.state == 4) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
+            this.runClock(5);
+            //所有人开牌
+        } else if (data.state == 5) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
+            //自动准备
+        } else if (data.state == 6) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_06"];
+            this.runClock(3);
+        }
     },
 
+    /**
+     * 开启闹钟
+     * @param {*} nTotalSecond 
+     */
+    runClock(nTotalSecond) {
+        self.clockNode.active = true;
+        self.clockNode.stopAllActions();
+        this.clockLabel.string = nTotalSecond;
+        var cf_func = cc.callFunc(function () {
+            nTotalSecond = nTotalSecond - 1;
+            this.clockLabel.string = nTotalSecond;
+            if (nTotalSecond < 0) {
+                self.clockNode.active = false;
+            }
+        });
+        var delay = cc.delayTime(1);
+        var seq = cc.sequence(delay, cf_func);
+        var rep = cc.repeat(seq, nTotalSecond + 1);
+        self.clockNode.runAction(rep);
+    },
+
+    /**
+     * 测试按钮 
+     */
+    onClickButtonTest() {
+        var data = {
+            roomNo: self.roomCode,
+            seatId: self.mySeatId
+        }
+        requestHandler.sendRequest(events.game.C2S_RESET_GAMESTATE, data);
+    }
 
 });

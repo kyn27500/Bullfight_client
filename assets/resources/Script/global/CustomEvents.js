@@ -177,7 +177,10 @@ var CustomEvents = {
         S2C_OPEN_CARD: "cardShowResultS2C",
 
 
-
+        /**
+         * 重置房间状态
+         */
+        C2S_RESET_GAMESTATE: "reSetGameStateC2S",
 
     },
 
