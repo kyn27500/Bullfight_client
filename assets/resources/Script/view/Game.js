@@ -145,7 +145,10 @@ cc.Class({
             var seatId = element.seatIndex
 
             // 隐藏坐下按钮
-            self.seats[self.mySeatId].active = false;
+            if(self.mySeatId){
+                self.seats[self.mySeatId].active = false;
+            }
+            
             var index = list.indexOf(seatId);
             list.splice(index, 1);
 
@@ -395,23 +398,23 @@ cc.Class({
         self.clockNode.active = false;
         //抢庄
         if (state == 2) {
-            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_10"];
-            this.runClock(5);
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_10"];
+            this.runClock(10);
             //普通玩家下注
         } else if (state == 3) {
-            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_18"];
-            this.runClock(5);
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_18"];
+            this.runClock(10);
             //玩家看牌
         } else if (state == 4) {
-            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
-            this.runClock(5);
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_03"];
+            this.runClock(10);
             //所有人开牌
         } else if (state == 5) {
-            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_03"];
             //自动准备
         } else if (state == 6) {
-            this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_06"];
-            this.runClock(3);
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_06"];
+            this.runClock(10);
         }
     },
 
@@ -420,8 +423,8 @@ cc.Class({
      * @param {*} nTotalSecond 
      */
     runClock(nTotalSecond) {
-        self.clockNode.active = true;
         self.clockNode.stopAllActions();
+        self.clockNode.active = true;
         this.clockLabel.string = nTotalSecond;
         var cf_func = cc.callFunc(function () {
             nTotalSecond = nTotalSecond - 1;
