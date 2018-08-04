@@ -161,7 +161,7 @@ var CustomEvents = {
      */
     S2C_ROOM_BANKER: "roomBankerS2C"
 
-  }, _defineProperty(_game, "C2S_BET", "playerBetC2S"), _defineProperty(_game, "S2C_BET", "playerBetS2C"), _defineProperty(_game, "S2C_LAST_CARD", "lastOneCardS2C"), _defineProperty(_game, "C2S_OPEN_CARD", "CardShowResultC2S"), _defineProperty(_game, "S2C_OPEN_CARD", "cardShowResultS2C"), _game),
+  }, _defineProperty(_game, "C2S_BET", "playerBetC2S"), _defineProperty(_game, "S2C_BET", "playerBetS2C"), _defineProperty(_game, "S2C_LAST_CARD", "lastOneCardS2C"), _defineProperty(_game, "C2S_OPEN_CARD", "cardShowResultC2S"), _defineProperty(_game, "S2C_OPEN_CARD", "cardShowResultS2C"), _defineProperty(_game, "C2S_RESET_GAMESTATE", "reSetGameStateC2S"), _game),
 
   /**
    * 预制事件

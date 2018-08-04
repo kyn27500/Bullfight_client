@@ -224,8 +224,11 @@ cc.Class({
                 setSF = cc.callFunc(function () {
                     $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 });
+                showType = cc.callFunc(function () {
+                    $this.setCartType(cardType);
+                });
                 moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
-                seq = cc.sequence(moveTo, setSF, moveTo1);
+                seq = cc.sequence(moveTo, setSF, moveTo1, showType);
 
                 $this.cardList[index].runAction(seq);
             };
@@ -233,6 +236,7 @@ cc.Class({
             for (var index = 0; index < 5; index++) {
                 var moveTo;
                 var setSF;
+                var showType;
                 var moveTo1;
                 var seq;
 

@@ -4,16 +4,12 @@ cc._RF.push(module, '3a311dHtBZAYrzCtAgH3YKV', 'Game', __filename);
 
 "use strict";
 
-var _cc$Class;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var self;
 var requestHandler = require("RequestHandler");
 var onfire = require("onfire");
 var events = require("CustomEvents");
 var GameData = require("GameData");
-cc.Class((_cc$Class = {
+cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -24,7 +20,15 @@ cc.Class((_cc$Class = {
         betNode: cc.Node,
         operation: cc.Node,
         centerNode: cc.Node, //中心点
-        myPlayer: cc.Node //我的节点
+        myPlayer: cc.Node, //我的节点
+        buttonTest: cc.Node,
+
+        sf_tableAtlas: cc.SpriteAtlas, //牌资源
+
+        spStateLabel: cc.Sprite, //状态描述文字
+        clockNode: cc.Node, //闹钟节点
+        clockLabel: cc.Label //闹钟label
+
 
     },
 
@@ -37,7 +41,7 @@ cc.Class((_cc$Class = {
         // 初始化控件
         self.initWidget
         // 设置监听
-        ();var listenerList = [[events.hall.HALL_DATA, this.onReceive_login, this], [events.game.S2C_SEAT_CHOOSE, this.onReceive_sitDown, this], [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this], [events.game.S2C_READY, this.onReceive_Ready, this], [events.game.S2C_CARDS, this.onReceive_cards, this], [events.game.S2C_GAME_STATE, this.onReceive_gameState, this], [events.game.S2C_ROB_BANKER, this.onReceive_robBanker, this], [events.game.S2C_BET, this.onReceive_bet, this], [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this], [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this]];
+        ();var listenerList = [[events.hall.HALL_DATA, this.onReceive_login, this], [events.game.S2C_SEAT_CHOOSE, this.onReceive_sitDown, this], [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this], [events.game.S2C_READY, this.onReceive_Ready, this], [events.game.S2C_CARDS, this.onReceive_cards, this], [events.game.S2C_GAME_STATE, this.onReceive_gameState, this], [events.game.S2C_ROB_BANKER, this.onReceive_robBanker, this], [events.game.S2C_BET, this.onReceive_bet, this], [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this], [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this], [events.game.S2C_OPEN_CARD, this.onReceive_openCard, this]];
         listenerList.forEach(function (element) {
             onfire.on(element[0], element[1], element[2]);
         });
@@ -132,7 +136,10 @@ cc.Class((_cc$Class = {
             var seatId = element.seatIndex;
 
             // 隐藏坐下按钮
-            self.seats[self.mySeatId].active = false;
+            if (self.mySeatId) {
+                self.seats[self.mySeatId].active = false;
+            }
+
             var index = list.indexOf(seatId);
             list.splice(index, 1);
 
@@ -151,7 +158,7 @@ cc.Class((_cc$Class = {
                     self.myPlayerObj.setBetNum(0);
                 }
             } else {
-                if (!self.players.node.active) {
+                if (!self.players[seatId].node.active) {
                     self.players[seatId].create(element);
                 } else if (self.state == 2) {
                     self.players[seatId].setBetNum(element.robBankerBet);
@@ -223,12 +230,16 @@ cc.Class((_cc$Class = {
         // 抢庄面板显示
         self.bankerNode.active = self.state == 2;
         // 下注倍数显示
-        self.betNode.active == self.state == 3 && !self.seatInfo.banker;
+        self.betNode.active = self.state == 3 && self.bankerIndex != self.mySeatId;
+        // 摊牌按钮
+        self.operation.active = self.state == 4;
         //未开始
         if (data.state == 0) {
 
             //开始游戏，发牌
         } else if (data.state == 1) {
+            self.myLastCardData = null;
+
             // 设置 准备状态消失
             self.players.forEach(function (element) {
                 element.setReady(false);
@@ -238,7 +249,7 @@ cc.Class((_cc$Class = {
 
             //普通玩家下注
         } else if (data.state == 3) {
-            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker);
+            console.log("下注按钮：查看自己是否是庄家", self.seatInfo.banker, self.state == 3 && !self.seatInfo.banker);
             //玩家看牌
         } else if (data.state == 4) {
 
@@ -255,6 +266,8 @@ cc.Class((_cc$Class = {
 
             self.myPlayerObj.setBanker(false);
         }
+
+        self.setGameState(self.state);
     },
 
 
@@ -304,6 +317,7 @@ cc.Class((_cc$Class = {
      */
     onReceive_bet: function onReceive_bet(data) {
         console.log("下注回调：", data);
+        self.betNode.active = false;
     },
 
 
@@ -313,6 +327,7 @@ cc.Class((_cc$Class = {
      */
     onReceive_roomBanker: function onReceive_roomBanker(data) {
         console.log("庄家ID 回调：", data);
+        self.bankerIndex = data.seatId;
         if (data.seatId == self.mySeatId) {
             self.myPlayerObj.setBanker(true);
         } else {
@@ -327,10 +342,101 @@ cc.Class((_cc$Class = {
     */
     onReceive_lastCard: function onReceive_lastCard(data) {
         console.log("庄家ID 回调：", data);
+        self.myLastCardData = data;
+    },
+
+
+    /**
+     * 按钮开牌
+     */
+    onClickForOpenCard: function onClickForOpenCard() {
+        if (self.myLastCardData) {
+
+            var data = {
+                roomNo: self.roomCode,
+                seatId: self.mySeatId
+            };
+            requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
+
+            this.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType);
+        }
+    },
+
+
+    /**
+    * 
+    * @param {*} data 
+    */
+    onReceive_openCard: function onReceive_openCard(data) {
+        console.log("庄家ID 回调：", data);
+
+        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.niuType);
+    },
+
+
+    /**
+     * 设置状态
+     * @param {*} state 
+     */
+    setGameState: function setGameState(state) {
+
+        self.clockNode.active = false;
+        //抢庄
+        if (state == 2) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_10"];
+            this.runClock(10);
+            //普通玩家下注
+        } else if (state == 3) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_18"];
+            this.runClock(10);
+            //玩家看牌
+        } else if (state == 4) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_03"];
+            this.runClock(10);
+            //所有人开牌
+        } else if (state == 5) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_03"];
+            //自动准备
+        } else if (state == 6) {
+            this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_06"];
+            this.runClock(10);
+        }
+    },
+
+
+    /**
+     * 开启闹钟
+     * @param {*} nTotalSecond 
+     */
+    runClock: function runClock(nTotalSecond) {
+        self.clockNode.stopAllActions();
+        self.clockNode.active = true;
+        this.clockLabel.string = nTotalSecond;
+        var cf_func = cc.callFunc(function () {
+            nTotalSecond = nTotalSecond - 1;
+            self.clockLabel.string = nTotalSecond;
+            if (nTotalSecond < 0) {
+                self.clockNode.active = false;
+            }
+        });
+        var delay = cc.delayTime(1);
+        var seq = cc.sequence(delay, cf_func);
+        var rep = cc.repeat(seq, nTotalSecond + 1);
+        self.clockNode.runAction(rep);
+    },
+
+
+    /**
+     * 测试按钮 
+     */
+    onClickButtonTest: function onClickButtonTest() {
+        var data = {
+            roomNo: self.roomCode,
+            seatId: self.mySeatId
+        };
+        requestHandler.sendRequest(events.game.C2S_RESET_GAMESTATE, data);
     }
-}, _defineProperty(_cc$Class, "onReceive_lastCard", function onReceive_lastCard(data) {
-    console.log("庄家ID 回调：", data);
-}), _defineProperty(_cc$Class, "setGameState", function setGameState(state) {}), _cc$Class));
+});
 
 cc._RF.pop();
         }
