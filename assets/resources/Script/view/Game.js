@@ -425,7 +425,7 @@ cc.Class({
         this.clockLabel.string = nTotalSecond;
         var cf_func = cc.callFunc(function () {
             nTotalSecond = nTotalSecond - 1;
-            this.clockLabel.string = nTotalSecond;
+            self.clockLabel.string = nTotalSecond;
             if (nTotalSecond < 0) {
                 self.clockNode.active = false;
             }
