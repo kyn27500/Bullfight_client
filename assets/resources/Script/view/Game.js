@@ -394,22 +394,22 @@ cc.Class({
 
         self.clockNode.active = false;
         //抢庄
-        if (data.state == 2) {
+        if (state == 2) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_10"];
             this.runClock(5);
             //普通玩家下注
-        } else if (data.state == 3) {
+        } else if (state == 3) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_18"];
             this.runClock(5);
             //玩家看牌
-        } else if (data.state == 4) {
+        } else if (state == 4) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
             this.runClock(5);
             //所有人开牌
-        } else if (data.state == 5) {
+        } else if (state == 5) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_03"];
             //自动准备
-        } else if (data.state == 6) {
+        } else if (state == 6) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas["AutoAtlas-1_06"];
             this.runClock(3);
         }
