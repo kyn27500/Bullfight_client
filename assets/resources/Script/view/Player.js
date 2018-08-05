@@ -211,16 +211,19 @@ cc.Class({
             }
         });
 
-        var scale1 = cc.scaleBy(0.4, 0.1, 1);
-        var scale2 = cc.scaleBy(0.4, 10, 1);
-        var delay = cc.delayTime(0.5);
-        var cf_setTexture = cc.callFunc(function () {
-            if (sf_cardList) {
-                $this.cardList[4].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[lastCard];
-            }
-        })
-        var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
-        this.cardList[4].runAction(seq);
+        if(this.isMySelf){
+            var scale1 = cc.scaleBy(0.4, 0.1, 1);
+            var scale2 = cc.scaleBy(0.4, 10, 1);
+            var delay = cc.delayTime(0.5);
+            var cf_setTexture = cc.callFunc(function () {
+                if (sf_cardList) {
+                    $this.cardList[4].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[lastCard];
+                }
+            })
+            var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
+            this.cardList[4].runAction(seq);
+        }
+        
     },
 
 
