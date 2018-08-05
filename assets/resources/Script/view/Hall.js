@@ -63,12 +63,33 @@ cc.Class({
             onfire.un(events.hall.S2C_LOGIN);
         });
 
+        var url=window.location.href;  
+        var argsObj = self.getUrlArgs(url); 
+
         var data = {
-            loginId:123
+            loginId:argsObj.loginId || new Date().getTime()%100000
         };
         requestHandler.sendRequest(events.hall.C2S_LOGIN, data);
     },
 
+    /**
+     * 获取url参数
+     * @param {string} url 
+     */
+    getUrlArgs(url){
+        if(!url || url=="" || url.indexOf("?")==-1){
+            return {}
+        }
+        var arr = url.split('?')[1].split('&')
+        var theRequest = new Object();
+        for (var i = 0; i < arr.length; i++) {
+            var kye = arr[i].split("=")[0]
+            var value = arr[i].split("=")[1]
+            // 给对象赋值
+            theRequest[kye] = value
+        }
+        return theRequest;
+    },
     joinRoom() {
         var onResourceLoaded = function(errorMessage, loadedResource) {
             //检查失败原因
