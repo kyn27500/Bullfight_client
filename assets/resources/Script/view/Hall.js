@@ -67,7 +67,7 @@ cc.Class({
         var argsObj = self.getUrlArgs(url); 
 
         var data = {
-            loginId:argsObj.loginId || new Date().getTime()%100000
+            loginId:argsObj.loginId || new Date().getTime()%1000
         };
         requestHandler.sendRequest(events.hall.C2S_LOGIN, data);
     },

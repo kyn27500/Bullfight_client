@@ -278,12 +278,8 @@ cc.Class({
         } else if (data.state == 6) {
 
             self.players.forEach(element => {
-
-                element.setBanker(false);
+                element.resetPlayer();
             });
-
-            self.myPlayerObj.setBanker(false);
-
         }
 
         self.setGameState(self.state);
@@ -374,8 +370,10 @@ cc.Class({
                 seatId: self.mySeatId
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
-
-            this.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType);
+            var setScore = function() {
+                self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score);
+            }
+            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType,setScore);
         }
     },
 
@@ -385,7 +383,9 @@ cc.Class({
     */
     onReceive_openCard(data) {
         console.log("庄家ID 回调：", data)
-
+        var setScore = function() {
+            self.myPlayerObj.showResultScore(self.players[data.seatId].score,data.playerCard.playerCard.score);
+        }
         self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.niuType)
     },
 

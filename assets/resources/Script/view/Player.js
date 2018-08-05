@@ -91,6 +91,14 @@ cc.Class({
     },
 
     /**
+     * 
+     */
+    setWinScore(nScore){
+        this.labelWinScore.node.active = true;
+        this.labelWinScore.string = nScore;
+    },
+
+    /**
      * 设置是否显示准备
      * @param {*} isReady 
      */
@@ -113,7 +121,7 @@ cc.Class({
      * 设置牌型
      * @param {*} pType 
      */
-    setCartType(pType) {
+    setCardType(pType) {
         this.spType.node.active = true
         this.spType.spriteFrame = cartTypeAtlas.getSpriteFrame(pType);
     },
@@ -193,7 +201,7 @@ cc.Class({
     },
 
     // 最后一张牌，开牌
-    openLastCard(cardData, lastCard, cardType) {
+    openLastCard(cardData, lastCard, cardType ,pCallback) {
         var $this = this;
         var cf_showResult = cc.callFunc(function () {
 
@@ -202,15 +210,24 @@ cc.Class({
                 var setSF = cc.callFunc(function () {
                     $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 });
-                var showType = cc.callFunc(function () {
-                    $this.setCartType(cardType);
-                });
+                
                 var moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
-                var seq = cc.sequence(moveTo, setSF, moveTo1, showType);
+                var seq = cc.sequence(moveTo, setSF, moveTo1);
+                // 最后一张牌
+                if(index == 4){
+                    var showType = cc.callFunc(function () {
+                        $this.setCardType(cardType);
+                        if(pCallback){
+                            pCallback();
+                        }
+                    });
+                    seq = cc.sequence(moveTo, setSF, moveTo1, showType);
+                }
                 $this.cardList[index].runAction(seq);
             }
         });
 
+        // 是自己就翻牌
         if(this.isMySelf){
             var scale1 = cc.scaleBy(0.4, 0.1, 1);
             var scale2 = cc.scaleBy(0.4, 10, 1);
@@ -222,10 +239,31 @@ cc.Class({
             })
             var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
             this.cardList[4].runAction(seq);
+        }else{
+            this.cardList[4].runAction(cf_showResult);
         }
         
     },
 
+    /**
+     * 设置赢得的分数
+     * @param {*} nWinScore 
+     * @param {*} nScore 
+     */
+    showResultScore(nWinScore,nScore){
+        this.setScore(nScore);
+        this.setWinScore(nWinScore);
+    },
+
+    /**
+     * 重置player
+     */
+    resetPlayer(){
+        this.setBanker(false);
+        this.spType.node.active = false;
+        this.cardNode.active = false;
+        this.labelWinScore.node.active = false;
+    }
 
 
 });
