@@ -373,7 +373,7 @@ cc.Class({
             var setScore = function() {
                 self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score,self.seatInfo.playerCard.cardType);
             }
-            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType,setScore);
+            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.resultType,setScore);
         }
     },
 
