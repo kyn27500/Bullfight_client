@@ -273,7 +273,7 @@ cc.Class({
 
             //所有人开牌
         } else if (data.state == 5) {
-
+            self.onClickForOpenCard();
             //自动准备
         } else if (data.state == 6) {
 
@@ -364,7 +364,7 @@ cc.Class({
      */
     onClickForOpenCard() {
         if (self.myLastCardData) {
-
+            this.operation.active = false;
             var data = {
                 roomNo: self.roomCode,
                 seatId: self.mySeatId
