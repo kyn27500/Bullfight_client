@@ -499,10 +499,10 @@ cc.Class({
             this.isMove = true;
 
             // 清理额外加分节点 2s
-            this.tableNode.removeChildByTag(2002
+            this.tableNode.removeChildByTag(2002);
 
             // 按压效果
-            );var anim_anya = this.createAnimationByName("anya", 1, 99);
+            var anim_anya = this.createAnimationByName("anya", 1, 99);
             anim_anya.setPosition(20, -10);
             this.myPersonNode.addChild(anim_anya, 0, 101);
             this.touchPress(true);

@@ -371,7 +371,7 @@ cc.Class({
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
             var setScore = function() {
-                self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score);
+                self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score,self.seatInfo.playerCard.cardType);
             }
             self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType,setScore);
         }

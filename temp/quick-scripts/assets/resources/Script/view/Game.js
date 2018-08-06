@@ -39,9 +39,9 @@ cc.Class({
         self.userInfo = GameData.getUserInfo();
         self.roomCode = GameData.getRoomCode();
         // 初始化控件
-        self.initWidget
+        self.initWidget();
         // 设置监听
-        ();var listenerList = [[events.hall.HALL_DATA, this.onReceive_login, this], [events.game.S2C_SEAT_CHOOSE, this.onReceive_sitDown, this], [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this], [events.game.S2C_READY, this.onReceive_Ready, this], [events.game.S2C_CARDS, this.onReceive_cards, this], [events.game.S2C_GAME_STATE, this.onReceive_gameState, this], [events.game.S2C_ROB_BANKER, this.onReceive_robBanker, this], [events.game.S2C_BET, this.onReceive_bet, this], [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this], [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this], [events.game.S2C_OPEN_CARD, this.onReceive_openCard, this]];
+        var listenerList = [[events.hall.HALL_DATA, this.onReceive_login, this], [events.game.S2C_SEAT_CHOOSE, this.onReceive_sitDown, this], [events.game.S2C_SYN_SEATS, this.onReceive_syn_seat, this], [events.game.S2C_READY, this.onReceive_Ready, this], [events.game.S2C_CARDS, this.onReceive_cards, this], [events.game.S2C_GAME_STATE, this.onReceive_gameState, this], [events.game.S2C_ROB_BANKER, this.onReceive_robBanker, this], [events.game.S2C_BET, this.onReceive_bet, this], [events.game.S2C_ROOM_BANKER, this.onReceive_roomBanker, this], [events.game.S2C_LAST_CARD, this.onReceive_lastCard, this], [events.game.S2C_OPEN_CARD, this.onReceive_openCard, this]];
         listenerList.forEach(function (element) {
             onfire.on(element[0], element[1], element[2]);
         });
@@ -220,10 +220,10 @@ cc.Class({
      * @param {*} data 
      */
     onReceive_gameState: function onReceive_gameState(data) {
-        console.log("游戏状态：", data.state, data.currentGameNum
+        console.log("游戏状态：", data.state, data.currentGameNum);
 
         // 设置状态值
-        );self.state = data.state;
+        self.state = data.state;
 
         // 座位显示
         self.seatNode.active = self.state == 0 || self.state == 6;
@@ -260,11 +260,8 @@ cc.Class({
         } else if (data.state == 6) {
 
             self.players.forEach(function (element) {
-
-                element.setBanker(false);
+                element.resetPlayer();
             });
-
-            self.myPlayerObj.setBanker(false);
         }
 
         self.setGameState(self.state);
@@ -357,8 +354,10 @@ cc.Class({
                 seatId: self.mySeatId
             };
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
-
-            this.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType);
+            var setScore = function setScore() {
+                self.myPlayerObj.showResultScore(self.seatInfo.score, self.seatInfo.playerCard.score, self.seatInfo.playerCard.cardType);
+            };
+            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType, setScore);
         }
     },
 
@@ -369,7 +368,9 @@ cc.Class({
     */
     onReceive_openCard: function onReceive_openCard(data) {
         console.log("庄家ID 回调：", data);
-
+        var setScore = function setScore() {
+            self.myPlayerObj.showResultScore(self.players[data.seatId].score, data.playerCard.playerCard.score);
+        };
         self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.niuType);
     },
 
