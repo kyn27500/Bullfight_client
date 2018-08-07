@@ -401,10 +401,11 @@ cc.Class({
     */
     onReceive_openCard(data) {
         console.log("庄家ID 回调：", data)
+        var info = self.seatPlayers[data.seatId]
         var setScore = function () {
-            self.players[data.seatId].showResultScore(self.players[data.seatId].score, data.playerCard.score);
+            self.players[data.seatId].showResultScore(info.score, info.playerCard.score);
         }
-        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.resultType)
+        self.players[data.seatId].openLastCard(info.playerCard.sortedCards, info.playerCard.cards[4], info.playerCard.resultType)
     },
 
     /**
