@@ -67,6 +67,10 @@ cc.Class({
         self.players = [];
         // 座位
         self.seats = [];
+        // 座位信息
+        self.seatPlayers = [];
+        // 玩家信息
+        self.playerInfos = [];
         for (let index = 1; index < 13; index++) {
             // 设置玩家
             self.players[index] = self.playerNode.getChildByName("player" + index).getComponent("Player");
@@ -138,20 +142,18 @@ cc.Class({
      */
     onReceive_syn_seat(data) {
         console.log("同步坐下玩家信息：", data);
-        self.seatPlayers = data.seatPlayers;
         var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         data.seatPlayers.forEach(element => {
             // 显示玩家数据
             var seatId = element.seatIndex
-
+            self.seatPlayers[seatId] = element;
             // 隐藏坐下按钮
-            if(self.mySeatId){
+            if (self.mySeatId) {
                 self.seats[self.mySeatId].active = false;
             }
-            
+
             var index = list.indexOf(seatId);
             list.splice(index, 1);
-
             // 复制自己的信息
             if (self.userInfo.uid == element.user.id) {
                 self.seatInfo = element;
@@ -273,6 +275,21 @@ cc.Class({
 
             //所有人开牌
         } else if (data.state == 5) {
+            if (self.myLastCardData) {
+                var setScore = function () {
+                    self.myPlayerObj.showResultScore(self.seatInfo.score, self.seatInfo.playerCard.score);
+                }
+                self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.resultType, setScore);
+            }
+            self.seatPlayers.forEach(element => {
+                if (element.seatIndex != self.mySeatId) {
+
+                    var setScore = function () {
+                        element.showResultScore(element.score, element.playerCard.score);
+                    }
+                    self.players[element.seatIndex].openLastCard(element.playerCard.sortedCards, element.playerCard.cards[4], element.playerCard.resultType)
+                }
+            });
 
             //自动准备
         } else if (data.state == 6) {
@@ -280,6 +297,7 @@ cc.Class({
             self.players.forEach(element => {
                 element.resetPlayer();
             });
+            self.myPlayerObj.resetPlayer();
         }
 
         self.setGameState(self.state);
@@ -370,10 +388,10 @@ cc.Class({
                 seatId: self.mySeatId
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
-            var setScore = function() {
-                self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score);
+            var setScore = function () {
+                self.myPlayerObj.showResultScore(self.seatInfo.score, self.seatInfo.playerCard.score);
             }
-            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.niuType,setScore);
+            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.resultType, setScore);
         }
     },
 
@@ -383,10 +401,10 @@ cc.Class({
     */
     onReceive_openCard(data) {
         console.log("庄家ID 回调：", data)
-        var setScore = function() {
-            self.myPlayerObj.showResultScore(self.players[data.seatId].score,data.playerCard.playerCard.score);
+        var setScore = function () {
+            self.players[data.seatId].showResultScore(self.players[data.seatId].score, data.playerCard.score);
         }
-        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.niuType)
+        self.players[data.seatId].openLastCard(data.playerCard.sortedCards, data.playerCard.cards[4], data.playerCard.resultType)
     },
 
     /**
@@ -411,6 +429,7 @@ cc.Class({
             //所有人开牌
         } else if (state == 5) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_03"];
+
             //自动准备
         } else if (state == 6) {
             this.spStateLabel.spriteFrame = self.sf_tableAtlas._spriteFrames["AutoAtlas-1_06"];

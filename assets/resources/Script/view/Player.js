@@ -17,12 +17,14 @@ cc.Class({
         labelWinScore: cc.Label,   //赢得的分数
         ctAtlas: cc.SpriteAtlas,   //图集 牛牛类型
         isMySelf: null,           //是否是自己
+        isOpenCard: false,            //是否开牌
 
         cardList: [],                //牌列表
         cardPosList: [],             //牌坐标 列表
 
         sf_cardBg: cc.SpriteFrame,
         sf_cardList: cc.SpriteAtlas, //牌资源
+        seatId: null,                //座位ID
     },
 
     // use this for initialization
@@ -51,6 +53,8 @@ cc.Class({
             ready: false,
             banker: false,
         }
+
+        this.seatId = data.seatIndex;
         this.data = data;
         // this.isMySelf = isMySelf;
         this.node.active = true;
@@ -93,7 +97,7 @@ cc.Class({
     /**
      * 
      */
-    setWinScore(nScore){
+    setWinScore(nScore) {
         this.labelWinScore.node.active = true;
         this.labelWinScore.string = nScore;
     },
@@ -201,7 +205,11 @@ cc.Class({
     },
 
     // 最后一张牌，开牌
-    openLastCard(cardData, lastCard, cardType ,pCallback) {
+    openLastCard(cardData, lastCard, cardType, pCallback) {
+        if (this.isOpenCard) {
+            return
+        }
+        this.isOpenCard = true;
         var $this = this;
         var cf_showResult = cc.callFunc(function () {
 
@@ -210,14 +218,14 @@ cc.Class({
                 var setSF = cc.callFunc(function () {
                     $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 });
-                
+
                 var moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
                 var seq = cc.sequence(moveTo, setSF, moveTo1);
                 // 最后一张牌
-                if(index == 4){
+                if (index == 4) {
                     var showType = cc.callFunc(function () {
                         $this.setCardType(cardType);
-                        if(pCallback){
+                        if (pCallback) {
                             pCallback();
                         }
                     });
@@ -228,7 +236,7 @@ cc.Class({
         });
 
         // 是自己就翻牌
-        if(this.isMySelf){
+        if (this.isMySelf) {
             var scale1 = cc.scaleBy(0.4, 0.1, 1);
             var scale2 = cc.scaleBy(0.4, 10, 1);
             var delay = cc.delayTime(0.5);
@@ -239,10 +247,10 @@ cc.Class({
             })
             var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
             this.cardList[4].runAction(seq);
-        }else{
+        } else {
             this.cardList[4].runAction(cf_showResult);
         }
-        
+
     },
 
     /**
@@ -250,7 +258,7 @@ cc.Class({
      * @param {*} nWinScore 
      * @param {*} nScore 
      */
-    showResultScore(nWinScore,nScore){
+    showResultScore(nWinScore, nScore) {
         this.setScore(nScore);
         this.setWinScore(nWinScore);
     },
@@ -258,11 +266,13 @@ cc.Class({
     /**
      * 重置player
      */
-    resetPlayer(){
+    resetPlayer() {
         this.setBanker(false);
         this.spType.node.active = false;
         this.cardNode.active = false;
         this.labelWinScore.node.active = false;
+        this.labelBet.node.active = false;
+        this.isOpenCard = false;
     }
 
 
