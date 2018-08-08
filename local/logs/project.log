@@ -1,83 +1,57 @@
-2018-08-04T13:30:59.505Z - normal: Load ~/.CocosCreator/settings.json
-2018-08-04T13:30:59.509Z - normal: checking language setting...
-2018-08-04T13:30:59.509Z - normal: Language: en
-2018-08-04T13:31:00.155Z - success: protocol editor-framework registered
-2018-08-04T13:31:00.156Z - success: protocol app registered
-2018-08-04T13:31:00.156Z - success: protocol theme registered
-2018-08-04T13:31:00.156Z - success: protocol profile registered
-2018-08-04T13:31:00.156Z - success: protocol packages registered
-2018-08-04T13:31:00.158Z - success: protocol unpack registerred
-2018-08-04T13:31:00.159Z - success: protocol disable-commonjs registerred
-2018-08-04T13:31:00.238Z - normal: connected!
-2018-08-04T13:31:00.240Z - normal: Check project /Users/wangmeili/Documents/workspace/creater/PKGame_creator
-2018-08-04T13:31:00.252Z - normal: Initializing Cocos2d
-2018-08-04T13:31:00.436Z - normal: Initializing Asset Database
-2018-08-04T13:31:00.466Z - success: protocol uuid registerred
-2018-08-04T13:31:00.467Z - success: protocol db registerred
-2018-08-04T13:31:00.467Z - success: protocol thumbnail registerred
-2018-08-04T13:31:00.468Z - normal: Loading editor/builtin packages
-2018-08-04T13:31:00.494Z - success: anysdk loaded
-2018-08-04T13:31:00.639Z - success: assets loaded
-2018-08-04T13:31:00.643Z - success: builder loaded
-2018-08-04T13:31:00.647Z - success: hierarchy loaded
-2018-08-04T13:31:00.651Z - success: inspector loaded
-2018-08-04T13:31:00.653Z - success: keystore loaded
-2018-08-04T13:31:00.657Z - success: node-library loaded
-2018-08-04T13:31:00.659Z - success: package-asset loaded
-2018-08-04T13:31:00.661Z - success: preferences loaded
-2018-08-04T13:31:00.664Z - success: project-exporter loaded
-2018-08-04T13:31:00.680Z - success: project-importer loaded
-2018-08-04T13:31:00.683Z - success: project-settings loaded
-2018-08-04T13:31:00.688Z - success: ui-kit loaded
-2018-08-04T13:31:00.692Z - success: ui-grid loaded
-2018-08-04T13:31:00.696Z - success: scene loaded
-2018-08-04T13:31:00.698Z - success: sprite-editor loaded
-2018-08-04T13:31:00.707Z - success: store loaded
-2018-08-04T13:31:00.713Z - success: timeline loaded
-2018-08-04T13:31:00.713Z - normal: Loading builtin packages
-2018-08-04T13:31:00.718Z - success: asset-db-debugger loaded
-2018-08-04T13:31:00.719Z - success: color-picker loaded
-2018-08-04T13:31:00.724Z - success: console loaded
-2018-08-04T13:31:00.727Z - success: package-manager loaded
-2018-08-04T13:31:00.732Z - success: sdkbox loaded
-2018-08-04T13:31:00.739Z - success: tester loaded
-2018-08-04T13:31:00.743Z - success: ui-kit-preview-extra loaded
-2018-08-04T13:31:00.747Z - success: ui-kit-preview loaded
-2018-08-04T13:31:00.750Z - success: ui-tree loaded
-2018-08-04T13:31:01.662Z - normal: Initializing project /Users/wangmeili/Documents/workspace/creater/PKGame_creator
-2018-08-04T13:31:01.664Z - normal: Loading packages
-2018-08-04T13:31:01.681Z - normal: [LuaCPP Support] version 0.3
-2018-08-04T13:31:01.682Z - success: creator-luacpp-support loaded
-2018-08-04T13:31:01.682Z - normal: Watching packages
-2018-08-04T13:31:01.765Z - normal: Run Application
-2018-08-04T13:31:02.478Z - success: preview server running at http://localhost:7456
-2018-08-04T13:31:07.323Z - normal: 1.6.1
-2018-08-04T13:31:08.248Z - warn: Script attached to "state" in scene "bull.fire" is missing or invalid. Detailed information:
-Node path: "Canvas/game/state"
-Asset url: "db://assets/resources/Scene/bull.fire"
-Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
-Class ID: "9271046E0BCC7f0JOuhfb7j"
-
-2018-08-04T13:36:34.805Z - warn: Script attached to "state" in scene "bull.fire" is missing or invalid. Detailed information:
-Node path: "Canvas/game/state"
-Asset url: "db://assets/resources/Scene/bull.fire"
-Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
-Class ID: "9271046E0BCC7f0JOuhfb7j"
-
-2018-08-04T13:52:36.940Z - warn: Script attached to "state" in scene "bull.fire" is missing or invalid. Detailed information:
-Node path: "Canvas/game/state"
-Asset url: "db://assets/resources/Scene/bull.fire"
-Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
-Class ID: "9271046E0BCC7f0JOuhfb7j"
-
-2018-08-04T14:12:14.276Z - warn: Script attached to "state" in scene "bull.fire" is missing or invalid. Detailed information:
-Node path: "Canvas/game/state"
-Asset url: "db://assets/resources/Scene/bull.fire"
-Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
-Class ID: "9271046E0BCC7f0JOuhfb7j"
-
-2018-08-04T14:12:50.184Z - warn: Script attached to "state" is missing or invalid. Detailed information:
-Node path: "Canvas/game/state"
-Script UUID: "92710e3a-1340-420b-b7f4-24eba17dbee3"
-Class ID: "9271046E0BCC7f0JOuhfb7j"
-
+2018-08-06T14:15:44.091Z - normal: Load ~/.CocosCreator/settings.json
+2018-08-06T14:15:44.095Z - normal: checking language setting...
+2018-08-06T14:15:44.095Z - normal: Language: zh
+2018-08-06T14:15:46.020Z - success: protocol editor-framework registered
+2018-08-06T14:15:46.020Z - success: protocol app registered
+2018-08-06T14:15:46.020Z - success: protocol theme registered
+2018-08-06T14:15:46.020Z - success: protocol packages registered
+2018-08-06T14:15:46.020Z - success: protocol unpack registerred
+2018-08-06T14:15:46.020Z - success: protocol disable-commonjs registerred
+2018-08-06T14:15:46.126Z - normal: connected!
+2018-08-06T14:15:46.127Z - normal: Check project D:\workspace\Bullfight_client
+2018-08-06T14:15:46.133Z - normal: Initializing Cocos2d
+2018-08-06T14:15:46.394Z - normal: Initializing Asset Database
+2018-08-06T14:15:46.441Z - success: protocol uuid registerred
+2018-08-06T14:15:46.441Z - success: protocol db registerred
+2018-08-06T14:15:46.441Z - success: protocol thumbnail registerred
+2018-08-06T14:15:46.442Z - normal: Loading editor/builtin packages
+2018-08-06T14:15:46.462Z - success: anysdk loaded
+2018-08-06T14:15:46.585Z - success: assets loaded
+2018-08-06T14:15:46.587Z - success: builder loaded
+2018-08-06T14:15:46.589Z - success: cocos-analytics loaded
+2018-08-06T14:15:46.592Z - success: console loaded
+2018-08-06T14:15:46.626Z - success: fb-instant-games loaded
+2018-08-06T14:15:46.629Z - success: hierarchy loaded
+2018-08-06T14:15:46.632Z - success: inspector loaded
+2018-08-06T14:15:46.633Z - success: keystore loaded
+2018-08-06T14:15:46.636Z - success: node-library loaded
+2018-08-06T14:15:46.637Z - success: package-asset loaded
+2018-08-06T14:15:46.640Z - success: preferences loaded
+2018-08-06T14:15:46.642Z - success: project-exporter loaded
+2018-08-06T14:15:46.656Z - success: project-importer loaded
+2018-08-06T14:15:46.658Z - success: project-settings loaded
+2018-08-06T14:15:46.659Z - success: ui-kit loaded
+2018-08-06T14:15:46.661Z - success: ui-grid loaded
+2018-08-06T14:15:46.664Z - success: scene loaded
+2018-08-06T14:15:46.665Z - success: sprite-editor loaded
+2018-08-06T14:15:46.668Z - success: store loaded
+2018-08-06T14:15:46.672Z - success: timeline loaded
+2018-08-06T14:15:46.672Z - normal: Loading builtin packages
+2018-08-06T14:15:46.674Z - success: asset-db-debugger loaded
+2018-08-06T14:15:46.675Z - success: code-editor loaded
+2018-08-06T14:15:46.676Z - success: color-picker loaded
+2018-08-06T14:15:46.678Z - success: package-manager loaded
+2018-08-06T14:15:46.683Z - success: sdkbox loaded
+2018-08-06T14:15:46.685Z - success: tester loaded
+2018-08-06T14:15:46.687Z - success: ui-kit-preview-extra loaded
+2018-08-06T14:15:46.688Z - success: ui-kit-preview loaded
+2018-08-06T14:15:46.689Z - success: ui-tree loaded
+2018-08-06T14:15:47.971Z - normal: Initializing project D:\workspace\Bullfight_client
+2018-08-06T14:15:47.977Z - normal: Loading packages
+2018-08-06T14:15:47.985Z - warn: The profile of the panel (creator-luacpp-support) needs to be moved to the package root
+2018-08-06T14:15:47.986Z - normal: [LuaCPP Support] version 0.3
+2018-08-06T14:15:47.987Z - success: creator-luacpp-support loaded
+2018-08-06T14:15:47.987Z - normal: Watching packages
+2018-08-06T14:15:48.088Z - normal: Run Application
+2018-08-06T14:15:49.212Z - success: preview server running at http://localhost:7456
+2018-08-06T14:15:54.682Z - normal: 1.9.0

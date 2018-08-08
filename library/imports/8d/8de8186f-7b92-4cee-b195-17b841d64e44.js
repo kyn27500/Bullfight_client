@@ -248,9 +248,9 @@ cc.Class({
             node.y = -Math.floor(index / 7) * spaceY - 38;
             _this.spGrid.addChild(node);
             //调用新建的node的addComponent函数，会返回一个sprite的对象  
-            var sprite = node.addComponent(cc.Sprite
+            var sprite = node.addComponent(cc.Sprite);
             //给sprite的spriteFrame属性 赋值  
-            );sprite.spriteFrame = spriteFrames[imgData[index] - 1];
+            sprite.spriteFrame = spriteFrames[imgData[index] - 1];
             // 赋值给list
             _this.imgNodeList[index] = node;
             button = node.addComponent(cc.Button);
@@ -391,9 +391,9 @@ cc.Class({
             var node = event.target;
             var sprite = node.getComponent(cc.Sprite);
             // 换图
-            this.setImgEffect(customEventData
+            this.setImgEffect(customEventData);
             // 点击图片处理
-            );if (this.touchCount == 0) {
+            if (this.touchCount == 0) {
                 this.touchImgId_1 = customEventData;
                 this.touchCount = 1;
             } else if (this.touchCount == 1) {

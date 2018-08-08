@@ -111,9 +111,9 @@ cc.Class({
     },
 
     onLoad: function onLoad() {
-        console.log("============= onLoad started"
+        console.log("============= onLoad started");
         // 单机模拟数据
-        );if (!config.isNetwork) {
+        if (!config.isNetwork) {
             this.resetSinglePlay();
             this.initGame();
         } else {

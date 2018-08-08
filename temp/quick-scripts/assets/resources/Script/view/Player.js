@@ -99,6 +99,15 @@ cc.Class({
 
 
     /**
+     * 
+     */
+    setWinScore: function setWinScore(nScore) {
+        this.labelWinScore.node.active = true;
+        this.labelWinScore.string = nScore;
+    },
+
+
+    /**
      * 设置是否显示准备
      * @param {*} isReady 
      */
@@ -122,7 +131,7 @@ cc.Class({
      * 设置牌型
      * @param {*} pType 
      */
-    setCartType: function setCartType(pType) {
+    setCardType: function setCardType(pType) {
         this.spType.node.active = true;
         this.spType.spriteFrame = cartTypeAtlas.getSpriteFrame(pType);
     },
@@ -216,7 +225,7 @@ cc.Class({
 
 
     // 最后一张牌，开牌
-    openLastCard: function openLastCard(cardData, lastCard, cardType) {
+    openLastCard: function openLastCard(cardData, lastCard, cardType, pCallback) {
         var $this = this;
         var cf_showResult = cc.callFunc(function () {
             var _loop2 = function _loop2(index) {
@@ -224,36 +233,71 @@ cc.Class({
                 setSF = cc.callFunc(function () {
                     $this.cardList[index].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[cardData[index]];
                 });
-                showType = cc.callFunc(function () {
-                    $this.setCartType(cardType);
-                });
                 moveTo1 = cc.moveTo(0.4, $this.cardPosList[index]);
-                seq = cc.sequence(moveTo, setSF, moveTo1, showType);
+                seq = cc.sequence(moveTo, setSF, moveTo1);
+                // 最后一张牌
 
+                if (index == 4) {
+                    showType = cc.callFunc(function () {
+                        $this.setCardType(cardType);
+                        if (pCallback) {
+                            pCallback();
+                        }
+                    });
+
+                    seq = cc.sequence(moveTo, setSF, moveTo1, showType);
+                }
                 $this.cardList[index].runAction(seq);
             };
 
             for (var index = 0; index < 5; index++) {
                 var moveTo;
                 var setSF;
-                var showType;
                 var moveTo1;
                 var seq;
+                var showType;
 
                 _loop2(index);
             }
         });
 
-        var scale1 = cc.scaleBy(0.4, 0.1, 1);
-        var scale2 = cc.scaleBy(0.4, 10, 1);
-        var delay = cc.delayTime(0.5);
-        var cf_setTexture = cc.callFunc(function () {
-            if (sf_cardList) {
-                $this.cardList[4].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[lastCard];
-            }
-        });
-        var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
-        this.cardList[4].runAction(seq);
+        // 是自己就翻牌
+        if (this.isMySelf) {
+            var scale1 = cc.scaleBy(0.4, 0.1, 1);
+            var scale2 = cc.scaleBy(0.4, 10, 1);
+            var delay = cc.delayTime(0.5);
+            var cf_setTexture = cc.callFunc(function () {
+                if (sf_cardList) {
+                    $this.cardList[4].getComponent("cc.Sprite").spriteFrame = sf_cardList._spriteFrames[lastCard];
+                }
+            });
+            var seq = cc.sequence(scale1, cf_setTexture, scale2, delay, cf_showResult);
+            this.cardList[4].runAction(seq);
+        } else {
+            this.cardList[4].runAction(cf_showResult);
+        }
+    },
+
+
+    /**
+     * 设置赢得的分数
+     * @param {*} nWinScore 
+     * @param {*} nScore 
+     */
+    showResultScore: function showResultScore(nWinScore, nScore) {
+        this.setScore(nScore);
+        this.setWinScore(nWinScore);
+    },
+
+
+    /**
+     * 重置player
+     */
+    resetPlayer: function resetPlayer() {
+        this.setBanker(false);
+        this.spType.node.active = false;
+        this.cardNode.active = false;
+        this.labelWinScore.node.active = false;
     }
 });
 

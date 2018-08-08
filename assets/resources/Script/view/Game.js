@@ -275,6 +275,7 @@ cc.Class({
 
             //所有人开牌
         } else if (data.state == 5) {
+<<<<<<< HEAD
             if (self.myLastCardData) {
                 var setScore = function () {
                     self.myPlayerObj.showResultScore(self.seatInfo.score, self.seatInfo.playerCard.score);
@@ -291,6 +292,9 @@ cc.Class({
                 }
             });
 
+=======
+            self.onClickForOpenCard();
+>>>>>>> 90ee6dc5f707c7b998113b67d53d191ad017d8d0
             //自动准备
         } else if (data.state == 6) {
 
@@ -382,16 +386,23 @@ cc.Class({
      */
     onClickForOpenCard() {
         if (self.myLastCardData) {
-
+            this.operation.active = false;
             var data = {
                 roomNo: self.roomCode,
                 seatId: self.mySeatId
             }
             requestHandler.sendRequest(events.game.C2S_OPEN_CARD, data);
+<<<<<<< HEAD
             var setScore = function () {
                 self.myPlayerObj.showResultScore(self.seatInfo.score, self.seatInfo.playerCard.score);
             }
             self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.resultType, setScore);
+=======
+            var setScore = function() {
+                self.myPlayerObj.showResultScore(self.seatInfo.score,self.seatInfo.playerCard.score,self.seatInfo.playerCard.cardType);
+            }
+            self.myPlayerObj.openLastCard(self.myLastCardData.playerCardsSort, self.myLastCardData.lastCard, self.seatInfo.playerCard.resultType,setScore);
+>>>>>>> 90ee6dc5f707c7b998113b67d53d191ad017d8d0
         }
     },
 
